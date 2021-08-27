@@ -1,0 +1,25 @@
+.timerHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    background: #C4C4C4;
+}
+
+.taskTitle {
+    margin: 14px 40px;
+    font-weight: bold;
+}
+
+.pomodoroNumber {
+    position: absolute;
+    font-weight: normal;
+    right: 40px;
+}
+
+.taskTitle, .pomodoroNumber {
+    font-family: SF UI Display, serif;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 17px;
+    color: #FFFFFF;
+}

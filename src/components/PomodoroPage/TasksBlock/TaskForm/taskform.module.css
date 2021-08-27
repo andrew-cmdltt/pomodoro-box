@@ -1,0 +1,37 @@
+.taskForm {
+    position: absolute;
+    left: 80px;
+    top: 462px
+}
+
+.input {
+    position: absolute;
+    width: 370px;
+    height: 55px;
+    border: none;
+    background: #F4F4F4;
+}
+
+.input[placeholder] {
+    font-family: SF UI Display;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    padding-left: 15px;
+    color: #999999;
+}
+
+.button {
+    width: 173px;
+    height: 55px;
+    margin-top: 75px;
+    background: #A8B64F;
+    font-family: SF UI Display;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+}
