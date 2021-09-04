@@ -5,8 +5,7 @@
 }
 
 .timerValue {
-    font-family: SF UI Display, ui-sans-serif;
-    text-align: center;
+    font-family: SF UI Display;
     font-style: normal;
     font-weight: 200;
     font-size: 150px;
@@ -71,8 +70,7 @@
 }
 
 .renewalButton {
-    position: absolute;
-    left: 581px;
-    top: 160px;
+    margin-left: 450px;
+    margin-top: -220px;
     cursor: pointer;
 }

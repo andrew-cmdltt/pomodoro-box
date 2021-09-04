@@ -1,0 +1,28 @@
+.menuItemsList {
+    padding-top: 5px;
+}
+
+.menuItem {
+    padding: 9px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    background: #F4F4F4;
+}
+
+.menuItem > svg + span {
+    margin-left: 7px;
+}
+
+.menuItem span {
+    font-family: SF UI Display;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    color: #999999;
+}

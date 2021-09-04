@@ -11,13 +11,12 @@
 }
 
 .pomodoroNumber {
-    position: absolute;
     font-weight: normal;
-    right: 40px;
+    margin-left: 420px;
 }
 
 .taskTitle, .pomodoroNumber {
-    font-family: SF UI Display, serif;
+    font-family: "Display", ui-sans-serif;
     font-style: normal;
     font-size: 16px;
     line-height: 17px;

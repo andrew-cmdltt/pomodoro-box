@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './tasksblock.module.css';
 import {Instruction} from "./Instruction";
-import {TaskForm} from "./TaskForm";
 import {TasksList} from "./TasksList";
+import {TaskFormContainer} from "./TaskFormContainer";
 
 export function TasksBlock() {
   return (
-    <div>
+    <div className={styles.tasksBlock}>
       <Instruction />
-      <TaskForm />
+      <TaskFormContainer />
       <TasksList />
     </div>
   );

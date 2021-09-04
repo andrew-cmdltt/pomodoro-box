@@ -1,9 +1,7 @@
-
 .statisticBlock {
-    position: absolute;
     display: flex;
     align-items: center;
-    right: 80px;
+    margin-left: 960px;
     cursor: pointer;
 }
 

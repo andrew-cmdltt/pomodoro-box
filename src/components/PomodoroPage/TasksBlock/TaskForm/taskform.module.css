@@ -1,7 +1,6 @@
 .taskForm {
-    position: absolute;
-    left: 80px;
-    top: 462px
+    margin-left: 80px;
+    margin-top: 25px;
 }
 
 .input {
@@ -13,13 +12,7 @@
 }
 
 .input[placeholder] {
-    font-family: SF UI Display;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 16px;
-    line-height: 17px;
     padding-left: 15px;
-    color: #999999;
 }
 
 .button {
@@ -27,11 +20,17 @@
     height: 55px;
     margin-top: 75px;
     background: #A8B64F;
-    font-family: SF UI Display;
+    font-family: 'Display', ui-sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
+}
+
+.error {
+    margin-top: 8px;
+    font-size: 18px;
+    color: #DC3E22;
 }

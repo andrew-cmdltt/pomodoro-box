@@ -1,7 +1,7 @@
 .tasksList {
     position: absolute;
-    top: 622px;
-    left: 80px;
+    margin-left: 80px;
+    margin-top: 550px;
     list-style: none;
 }
 
