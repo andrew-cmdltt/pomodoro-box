@@ -1,7 +1,8 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {TaskForm} from "../TaskForm";
-import {addTask} from "../../../../store/tasks/actions";
+import {addTask, deleteTask} from "../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
+// const uuid = require("uuid");
 
 export function TaskFormContainer() {
     const [value, setValue] = useState("")
@@ -19,10 +20,12 @@ export function TaskFormContainer() {
         } else {
             setError("")
             dispatch(addTask({
+                // id: uuid.v4(),
+                id: "045f48e8-14ed-4750-8f53-523d748f031c",
                 title: value,
                 pomodoro_count: 1
             }))
-            console.log("Форма отправлена")
+            dispatch(deleteTask("045f48e8-14ed-4750-8f53-523d748f031c"))
         }
     }
 

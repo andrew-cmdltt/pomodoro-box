@@ -1,18 +1,24 @@
 import {Reducer} from "react";
-import {ITasksData, AddTaskAction} from "./actions";
+import {ITasksData, AddTaskAction, DeleteTaskAction} from "./actions";
 
 export type TaskState = {
-    data?: ITasksData;
+    data: ITasksData[];
 }
 
-type AddAction = AddTaskAction
+type TaskActions = AddTaskAction | DeleteTaskAction
 
-export const addTaskReducer: Reducer<TaskState, AddAction> = (state, action) => {
+export const tasksReducer: Reducer<TaskState, TaskActions> = (state, action) => {
     switch (action.type) {
         case "ADD_TASK":
             return {
                 ...state,
-                data: action.data
+                data: action.data ? [...state.data, action.data] : []
+            };
+       case "DELETE_TASK":
+           console.log(action.data)
+            return {
+                ...state,
+                data: state.data.filter(task => task.id !== action.data)
             };
         default:
             return state;
