@@ -6,8 +6,19 @@ export interface ITasksData {
     pomodoro_count?: string;
 }
 
+export const GET_TASKS = 'GET_TASKS';
 export const ADD_TASK = 'ADD_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
+
+export type GetTasksAction = {
+    type: typeof GET_TASKS;
+    data?: ITasksData;
+}
+
+export const getTasks: ActionCreator<GetTasksAction> = (data: ITasksData) => ({
+    type: GET_TASKS,
+    data
+});
 
 export type AddTaskAction = {
     type: typeof ADD_TASK;
@@ -28,3 +39,4 @@ export const deleteTask: ActionCreator<DeleteTaskAction> = (data: ITasksData) =>
     type: DELETE_TASK,
     data
 });
+

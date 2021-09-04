@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './taskslist.module.css';
 import {Menu} from "./Menu";
+import {RootState} from "../../../../store/reducer";
+import {useSelector} from "react-redux";
 
 export function TasksList() {
+    const tasks = useSelector<RootState>(state => state.tasks);
+    console.log(tasks)
+
     return (
         <ul className={styles.tasksList}>
             <div className={styles.divider}/>
