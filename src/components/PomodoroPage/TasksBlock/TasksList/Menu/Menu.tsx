@@ -4,7 +4,11 @@ import {Dropdown} from "../../../../Dropdown";
 import {MenuButton} from "./MenuButton";
 import {MenuItemsList} from "./MenuItemsList";
 
-export function Menu() {
+type Props = {
+    id?: string
+}
+
+export function Menu({id}: Props) {
     return (
         <div className={styles.menu}>
             <Dropdown
@@ -12,7 +16,7 @@ export function Menu() {
                 right={0}
                 button={<MenuButton/>}>
                 <div className={styles.dropdown}>
-                    <MenuItemsList />
+                    <MenuItemsList id={id}/>
                 </div>
             </Dropdown>
         </div>

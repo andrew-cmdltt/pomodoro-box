@@ -1,5 +1,5 @@
 import {Reducer} from "redux";
-import {ADD_TASK, DELETE_TASK} from "./tasks/actions";
+import {ADD_TASK, DECREASE_POMODORO, DELETE_TASK, INCREASE_POMODORO} from "./tasks/types";
 import {tasksReducer, TaskState} from "./tasks/reduser";
 
 export type RootState = {
@@ -15,11 +15,9 @@ const initialState = {
 export const rootReducer: Reducer<RootState> = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
-            return {
-                ...state,
-                tasks: tasksReducer(state.tasks, action)
-            }
         case DELETE_TASK:
+        case INCREASE_POMODORO:
+        case DECREASE_POMODORO:
             return {
                 ...state,
                 tasks: tasksReducer(state.tasks, action)
