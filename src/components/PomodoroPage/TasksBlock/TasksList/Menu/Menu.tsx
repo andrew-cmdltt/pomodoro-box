@@ -13,7 +13,7 @@ export function Menu({id}: Props) {
         <div className={styles.menu}>
             <Dropdown
                 top={4}
-                right={0}
+                right={-370}
                 button={<MenuButton/>}>
                 <div className={styles.dropdown}>
                     <MenuItemsList id={id}/>

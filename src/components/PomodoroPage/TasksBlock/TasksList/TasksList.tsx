@@ -16,9 +16,9 @@ export function TasksList({tasks}: Props) {
                 {tasks?.map((task) => (
                     <div key={task.id}>
                         <li>
+                            <Menu id={task.id}/>
                             <div className={styles.pomodoroCounter}>{task.pomodoro_count}</div>
                             <div className={styles.taskTitle}>{task.title}</div>
-                            <Menu id={task.id}/>
                         </li>
                         <div className={styles.divider}/>
                     </div>

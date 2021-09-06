@@ -14,7 +14,7 @@ export function TasksBlock() {
         <div className={styles.tasksBlock}>
             <Instruction/>
             <TaskFormContainer/>
-            <TasksList tasks={tasks.data}/>
+            {tasks.data.length > 0 && (<TasksList tasks={tasks.data}/>)}
         </div>
     );
 }
