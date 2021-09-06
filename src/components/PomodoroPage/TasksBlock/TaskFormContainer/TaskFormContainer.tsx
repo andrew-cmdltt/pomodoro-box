@@ -22,7 +22,8 @@ export function TaskFormContainer() {
             dispatch(addTask({
                 id: uuid.v4(),
                 title: value,
-                pomodoro_count: 1
+                pomodoro_count: 1,
+                time_count: 25,
             }))
         }
     }

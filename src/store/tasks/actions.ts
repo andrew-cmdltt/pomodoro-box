@@ -5,6 +5,7 @@ export interface ITasksData {
     id?: string;
     title?: string;
     pomodoro_count: number;
+    time_count: number;
 }
 
 export type AddTaskAction = {
