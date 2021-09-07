@@ -9,6 +9,8 @@ import {applyMiddleware, createStore} from "redux";
 import {rootReducer} from "./store/reducer";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {DeleteModal} from "./components/DeleteModal";
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk)
@@ -17,12 +19,23 @@ const store = createStore(rootReducer, composeWithDevTools(
 function App() {
     return (
         <Provider store={store}>
-            <Layout>
-                <Header/>
-                <Content>
-                    <PomodoroPage/>
-                </Content>
-            </Layout>
+            <BrowserRouter>
+
+                <Layout>
+                    <Header/>
+                    <Content>
+                        <Switch>
+                            <Route exact path="/">
+                                <PomodoroPage/>
+                            </Route>
+                            <Route path="/delete/:id">
+                                <PomodoroPage/>
+                                <DeleteModal/>
+                            </Route>
+                        </Switch>
+                    </Content>
+                </Layout>
+            </BrowserRouter>
         </Provider>
     );
 }
