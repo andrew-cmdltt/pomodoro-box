@@ -1,15 +1,16 @@
 import {useRef, useEffect} from "react";
 import {useHistory} from "react-router-dom";
 
-export function useModalRef() {
+export function useModalRef(isMounted: boolean) {
     const ref = useRef<HTMLDivElement>(null)
     const history = useHistory()
 
     useEffect(() => {
         function handleClick(event: MouseEvent) {
             if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-                console.log("closed")
-                history.push('/')
+                if (isMounted) {
+                    history.push('/')
+                }
             }
         }
 
@@ -18,7 +19,7 @@ export function useModalRef() {
         return () => {
             document.removeEventListener('click', handleClick)
         }
-    }, [history])
+    }, [history, isMounted])
 
     return [ref]
 }

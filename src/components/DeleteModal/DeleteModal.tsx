@@ -11,10 +11,15 @@ interface Params {
 }
 
 export function DeleteModal() {
-    // const [ref] = useModalRef()
     const dispatch = useDispatch()
-
     const id: Params = useParams();
+    const [isMounted, setIsMounted] = useState(false);
+    const [ref] = useModalRef(isMounted)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
 
     const handleRemove = () => {
         dispatch(deleteTask(id.id))
@@ -27,7 +32,7 @@ export function DeleteModal() {
             top={-400}
             right={620}
         >
-            <div className={styles.deleteModal}>
+            <div className={styles.deleteModal} ref={ref}>
                 <span className={styles.modalTitle}>Удалить задачу?</span>
                 <Link className={styles.modalClose} to="/">
                     <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
