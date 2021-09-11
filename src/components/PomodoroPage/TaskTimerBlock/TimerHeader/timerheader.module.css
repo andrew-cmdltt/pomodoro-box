@@ -5,6 +5,14 @@
     background: #C4C4C4;
 }
 
+.work {
+    background: #DC3E22;
+}
+
+.break {
+    background: #A8B64F;
+}
+
 .taskTitle {
     margin: 14px 40px;
     font-weight: bold;

@@ -7,10 +7,11 @@ type Props = {
     minutes: number
     seconds: number
     handleStart: () => void
-    handleStop: () => void
+    handlePause: () => void
     handleIncreaseTime: () => void
     isBreak: boolean
-    isStart: boolean
+    isWork: boolean
+    isPause: boolean
 }
 
 export function TimerContent(props: Props) {
@@ -19,11 +20,13 @@ export function TimerContent(props: Props) {
             <Timer pomodoroCount={2}
                    handleIncreaseTime={props.handleIncreaseTime}
                    handleStart={props.handleStart}
-                   handleStop={props.handleStop}
+                   handlePause={props.handlePause}
                    minutes={props.minutes}
                    seconds={props.seconds}
                    isBreak={props.isBreak}
-                   isStart={props.isStart}/>
+                   isWork={props.isWork}
+                   isPause={props.isPause}
+            />
         </div>
     );
 }

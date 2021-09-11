@@ -42,10 +42,13 @@
     margin-top: 32px;
 }
 
-.startButton {
+.startButton,
+.stopButton,
+.proceedButton,
+.madeButton, .skipButtonOnPause
+{
     width: 145px;
     height: 55px;
-    background: #A8B64F;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -54,22 +57,21 @@
     color: #FFFFFF;
 }
 
+.startButton,
+.proceedButton {
+    background: #A8B64F;
+}
+
 .startButton:hover {
     background: #899441;
 }
 
 .stopButton {
-    width: 145px;
-    height: 55px;
-    background: #F4F4F4;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 17px;
-    text-align: center;
     border: 2px solid #C4C4C4;
-    box-sizing: border-box;
     color: #C4C4C4;
+}
+
+.stopButton, .madeButton, .skipButton {
     margin-left: 25px;
 }
 
@@ -79,6 +81,30 @@
     cursor: pointer;
 }
 
+.skipButton {
+    border: 2px solid #DC3E22;
+    color: #DC3E22;
+    width: 189px;
+}
+
 .renewalButton svg circle:hover {
-    fill: #899441;;
+    fill: #899441;
+}
+
+.stopButtonOnWork {
+    border-color: #DC3E22;
+    color: #DC3E22;
+}
+
+.madeButton, .skipButtonOnPause {
+    background-color: #DC3E22;
+    color: #FFFFFF;
+}
+
+.work {
+    color: #DC3E22;
+}
+
+.break {
+    color: #A8B64F;
 }

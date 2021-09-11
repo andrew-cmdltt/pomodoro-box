@@ -7,16 +7,17 @@ export function TaskTimerBlock() {
     const [minutes, setMinutes] = useState(25)
     const [seconds, setSeconds] = useState(60)
 
-    const [isStart, setIsStart] = useState(false)
+    const [isWork, setIsWork] = useState(false)
     const [isBreak, setIsBreak] = useState(false)
+    const [isPause, setIsPause] = useState(false)
 
     const handleStart = () => {
-        setIsStart(true)
+        setIsWork(true)
         setMinutes(minutes => minutes - 1);
     }
 
-    const handleStop = () => {
-        setIsStart(false)
+    const handlePause = () => {
+        setIsPause(!isPause)
     }
 
     const handleIncreaseTime = () => {
@@ -25,7 +26,7 @@ export function TaskTimerBlock() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (isStart) {
+            if (isWork && !isPause) {
                 setSeconds(seconds => seconds - 1);
                 if (seconds === 0) {
                     setMinutes(minutes => minutes - 1);
@@ -43,20 +44,21 @@ export function TaskTimerBlock() {
             }
         }, 5);
         return () => clearInterval(interval);
-    }, [isBreak, isStart, minutes, seconds]);
+    }, [isBreak, isPause, isWork, minutes, seconds]);
 
     return (
         <div className={styles.taskTimerBlock}>
-            <TimerHeader/>
+            <TimerHeader isBreak={isBreak} isWork={isWork}/>
             <TimerContent
                 pomodoroCount={2}
                 handleIncreaseTime={handleIncreaseTime}
                 handleStart={handleStart}
-                handleStop={handleStop}
+                handlePause={handlePause}
                 minutes={minutes}
                 seconds={seconds}
                 isBreak={isBreak}
-                isStart={isStart}
+                isWork={isWork}
+                isPause={isPause}
             />
         </div>
     );
