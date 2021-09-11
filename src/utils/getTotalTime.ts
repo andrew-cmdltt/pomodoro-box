@@ -3,7 +3,7 @@ import {ITasksData} from "../store/tasks/actions";
 export function getTotalTime(tasks: ITasksData[]): string {
     let totalTimeCount: number = 0
     for (let i = 0; i < tasks.length; i++) {
-        totalTimeCount += tasks[i]["time_count"]
+        totalTimeCount += tasks[i]["pomodoro_count"] * 25
     }
 
     if (totalTimeCount > 60) {

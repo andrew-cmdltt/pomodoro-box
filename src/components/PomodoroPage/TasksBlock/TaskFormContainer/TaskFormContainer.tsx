@@ -23,7 +23,6 @@ export function TaskFormContainer() {
                 id: uuid.v4(),
                 title: value,
                 pomodoro_count: 1,
-                time_count: 25,
             }))
         }
     }

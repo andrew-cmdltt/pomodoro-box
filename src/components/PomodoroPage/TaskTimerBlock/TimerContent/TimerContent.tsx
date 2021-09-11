@@ -5,7 +5,7 @@ import {Timer} from "./Timer";
 export function TimerContent() {
     return (
         <div className={styles.timerContent}>
-            <Timer />
+            <Timer pomodoroCount={2} />
         </div>
     );
 }
