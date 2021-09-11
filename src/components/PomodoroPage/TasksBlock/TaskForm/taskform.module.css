@@ -29,6 +29,10 @@
     color: #FFFFFF;
 }
 
+.button:hover {
+    background: #899441;
+}
+
 .error {
     margin-top: 8px;
     font-size: 18px;

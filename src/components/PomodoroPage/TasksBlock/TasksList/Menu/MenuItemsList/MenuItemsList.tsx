@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './menuitemslist.module.css';
-import {DecreaseIcon, EditIcon, IncreaseIcon, DeleteIcon} from "../../../../../Icons";
+import {DecreasePomodoroIcon, EditIcon, IncreasePomodoroIcon, DeleteIcon} from "../../../../../Icons";
 import {useDispatch} from "react-redux";
 import {decreasePomodoro, increasePomodoro} from "../../../../../../store/tasks/actions";
 import { Link } from 'react-router-dom';
@@ -23,11 +23,11 @@ export function MenuItemsList({id}: Props) {
     return (
         <ul className={styles.menuItemsList}>
             <li className={styles.menuItem} onClick={handleIncreasePomodoro}>
-                <IncreaseIcon/>
+                <IncreasePomodoroIcon/>
                 <span>Увеличить</span>
             </li>
             <li className={styles.menuItem} onClick={handleDecreasePomodoro}>
-                <DecreaseIcon/>
+                <DecreasePomodoroIcon/>
                 <span>Уменьшить</span>
             </li>
             <li className={styles.menuItem}>

@@ -1,5 +1,5 @@
 export * from './MenuIcon'
-export * from './IncreaseIcon'
-export * from './DecreaseIcon'
+export * from './IncreasePomodoroIcon'
+export * from './DecreasePomodoroIcon'
 export * from './EditIcon'
 export * from './DeleteIcon'
