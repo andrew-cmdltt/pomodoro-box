@@ -1,36 +1,27 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import styles from './menuitemslist.module.css';
 import {DecreasePomodoroIcon, EditIcon, IncreasePomodoroIcon, DeleteIcon} from "../../../../../Icons";
-import {useDispatch} from "react-redux";
-import {decreasePomodoro, increasePomodoro} from "../../../../../../store/tasks/actions";
 import { Link } from 'react-router-dom';
 
 type Props = {
     id?: string
+    handleIncreasePomodoro: (id?: string) => void
+    handleDecreasePomodoro: (id?: string) => void
+    setIsEdit: Dispatch<SetStateAction<boolean>>
 }
 
-export function MenuItemsList({id}: Props) {
-    const dispatch = useDispatch()
-
-    const handleIncreasePomodoro = () => {
-        dispatch(increasePomodoro(id))
-    }
-
-    const handleDecreasePomodoro = () => {
-        dispatch(decreasePomodoro(id))
-    }
-
+export function MenuItemsList({handleDecreasePomodoro, setIsEdit, handleIncreasePomodoro, id}: Props) {
     return (
         <ul className={styles.menuItemsList}>
-            <li className={styles.menuItem} onClick={handleIncreasePomodoro}>
+            <li className={styles.menuItem} onClick={() => handleIncreasePomodoro(id)}>
                 <IncreasePomodoroIcon/>
                 <span>Увеличить</span>
             </li>
-            <li className={styles.menuItem} onClick={handleDecreasePomodoro}>
+            <li className={styles.menuItem} onClick={() => handleDecreasePomodoro(id)}>
                 <DecreasePomodoroIcon/>
                 <span>Уменьшить</span>
             </li>
-            <li className={styles.menuItem}>
+            <li className={styles.menuItem} onClick={() => setIsEdit(true)}>
                 <EditIcon/>
                 <span>Редактировать</span>
             </li>
