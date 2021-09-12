@@ -3,18 +3,19 @@ import styles from './tasksblock.module.css';
 import {Instruction} from "./Instruction";
 import {TasksList} from "./TasksList";
 import {TaskFormContainer} from "./TaskFormContainer";
-import {useSelector} from "react-redux";
-import {RootState} from "../../../store/reducer";
-import {TaskState} from "../../../store/tasks/reduser";
+import {ITasksData} from "../../../store/tasks/actions";
 
-export function TasksBlock() {
-    const tasks = useSelector<RootState, TaskState>(state => state.tasks);
+type Props = {
+    isWork: boolean
+    tasks: ITasksData[]
+}
 
+export function TasksBlock({isWork, tasks}: Props) {
     return (
         <div className={styles.tasksBlock}>
             <Instruction/>
             <TaskFormContainer/>
-            {tasks.data.length > 0 && (<TasksList tasks={tasks.data}/>)}
+            {tasks.length > 0 && !isWork && (<TasksList tasks={tasks} />)}
         </div>
     );
 }

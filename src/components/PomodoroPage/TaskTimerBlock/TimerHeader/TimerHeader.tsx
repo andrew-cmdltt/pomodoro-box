@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './timerheader.module.css';
 import {getTimerClassName, Params} from "../../../../utils/getTimerHeaderClass";
+import {UseTimerParams} from "../../../../hooks/useTimer";
 
 type Props = {
-    isWork: boolean
-    isBreak: boolean
+    timerParams: UseTimerParams,
 }
 
-export function TimerHeader({isWork, isBreak}: Props) {
+export function TimerHeader({timerParams}: Props) {
     const params: Params = {
-        isStart: isWork,
-        isBreak: isBreak,
+        isWork: timerParams.isWork,
+        isBreak: timerParams.isBreak,
         defaultClass: styles.timerHeader,
         onBreakClass: styles.break,
         onWorkClass: styles.work,
@@ -18,8 +18,8 @@ export function TimerHeader({isWork, isBreak}: Props) {
 
     return (
         <div className={getTimerClassName(params)}>
-            <div className={styles.taskTitle}>Сверстать сайт</div>
-            <div className={styles.pomodoroNumber}>Помидор 1</div>
+            <div className={styles.taskTitle}>{timerParams.currentTask.title}</div>
+            <div className={styles.pomodoroNumber}>Помидор {timerParams.pomodoro}</div>
         </div>
     );
 }

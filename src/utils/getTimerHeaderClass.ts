@@ -3,17 +3,18 @@ export type Params = {
     onWorkClass: string,
     onBreakClass: string,
     isBreak: boolean,
-    isStart: boolean
+    isWork: boolean
+    isPause?: boolean
 }
 
 export function getTimerClassName(params: Params) {
     let timerClass = params.defaultClass
 
-    if (params.isStart) {
+    if (params.isWork && !params.isPause) {
         timerClass = params.defaultClass + " " + params.onWorkClass
     }
 
-    if (params.isBreak) {
+    if (params.isBreak && !params.isPause) {
         timerClass = params.defaultClass + " " + params.onBreakClass
     }
 

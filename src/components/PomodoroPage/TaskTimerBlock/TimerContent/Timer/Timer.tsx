@@ -3,31 +3,25 @@ import styles from './timer.module.css';
 import {getTimerValue} from "../../../../../utils/getTimerValue";
 import {IncreaseTimeIcon} from "../../../../Icons/IncreaseTimeIcon";
 import {getTimerClassName, Params} from "../../../../../utils/getTimerHeaderClass";
+import {UseTimerParams} from "../../../../../hooks/useTimer";
 
 type Props = {
-    pomodoroCount: number
-    minutes: number
-    seconds: number
-    handleStart: () => void
-    handlePause: () => void
-    handleIncreaseTime: () => void
-    isBreak: boolean
-    isWork: boolean
-    isPause: boolean
+    timerParams: UseTimerParams,
 }
 
-export function Timer(props: Props) {
+export function Timer({timerParams}: Props) {
     const timerValueParams: Params = {
-        isStart: props.isWork,
-        isBreak: props.isBreak,
+        isWork: timerParams.isWork,
+        isBreak: timerParams.isBreak,
         defaultClass: styles.timerValue,
         onBreakClass: styles.break,
         onWorkClass: styles.work,
+        isPause: timerParams.isPause
     }
 
     const stopButtonParams: Params = {
-        isStart: props.isWork,
-        isBreak: props.isBreak,
+        isWork: timerParams.isWork,
+        isBreak: timerParams.isBreak,
         defaultClass: styles.stopButton,
         onBreakClass: styles.break,
         onWorkClass: styles.stopButtonOnWork,
@@ -36,59 +30,60 @@ export function Timer(props: Props) {
     return (
         <div className={styles.timer}>
             <div className={getTimerClassName(timerValueParams)}>
-                {getTimerValue(props.minutes, props.seconds)}
+                {getTimerValue(timerParams.minutes, timerParams.seconds)}
             </div>
             <div className={styles.timerLabel}>
                 <div className={styles.taskNumber}>
-                    Задача 1 - <br/>
+                    Задача {timerParams.currentTaskNumber} - <br/>
                 </div>
                 <div className={styles.taskTitle}>
-                    Сверстать сайт
+                    {timerParams.currentTask.title}
                 </div>
             </div>
             <div className={styles.timerControls}>
-                {props.isWork && !props.isPause && !props.isBreak &&
+                {timerParams.isWork && !timerParams.isPause && !timerParams.isBreak &&
                 (<>
-                    <button className={styles.startButton} onClick={props.handlePause}>Пауза</button>
-                    <button className={getTimerClassName(stopButtonParams)} onClick={props.handlePause}
+                    <button className={styles.startButton} onClick={timerParams.handlePause}>Пауза</button>
+                    <button className={getTimerClassName(stopButtonParams)} onClick={timerParams.handleStop}
                             disabled={false}>
                         Стоп
                     </button>
                 </>)}
 
-                {!props.isWork && !props.isPause && !props.isBreak &&
+                {!timerParams.isWork && !timerParams.isPause && !timerParams.isBreak &&
                 (<>
-                    <button className={styles.startButton} onClick={props.handleStart}>Старт</button>
-                    <button className={getTimerClassName(stopButtonParams)} onClick={props.handlePause}
+                    <button className={styles.startButton} onClick={timerParams.handleStart}>Старт</button>
+                    <button className={getTimerClassName(stopButtonParams)}
                             disabled={true}>
                         Стоп
                     </button>
                 </>)}
 
-                {props.isPause && !props.isBreak &&
+                {timerParams.isPause && !timerParams.isBreak &&
                 (<>
-                    <button className={styles.proceedButton} onClick={props.handlePause}>Продолжить</button>
-                    <button className={styles.madeButton} onClick={props.handlePause}>Сделано</button>
+                    <button className={styles.proceedButton} onClick={timerParams.handlePause}>Продолжить</button>
+                    <button className={styles.madeButton} onClick={timerParams.handleScip}>Сделано</button>
                 </>)
                 }
 
-                {props.isBreak && !props.isPause &&
+                {timerParams.isBreak && !timerParams.isPause &&
                 (<>
-                    <button className={styles.startButton} onClick={props.handlePause}>Пауза</button>
-                    <button className={styles.skipButton} onClick={props.handlePause}>Пропустить</button>
+                    <button className={styles.startButton} onClick={timerParams.handlePause}>Пауза</button>
+                    <button className={styles.skipButton} onClick={timerParams.handleScip}>Пропустить</button>
                 </>)
                 }
 
-                {props.isBreak && props.isPause &&
+                {timerParams.isBreak && timerParams.isPause &&
                 (<>
-                    <button className={styles.proceedButton} onClick={props.handlePause}>Продолжить</button>
-                    <button className={styles.skipButton + " " + styles.skipButtonOnPause} onClick={props.handlePause}>
+                    <button className={styles.proceedButton} onClick={timerParams.handlePause}>Продолжить</button>
+                    <button className={styles.skipButton + " " + styles.skipButtonOnPause}
+                            onClick={timerParams.handleScip}>
                         Пропустить
                     </button>
                 </>)
                 }
             </div>
-            <div className={styles.renewalButton} onClick={props.handleIncreaseTime}>
+            <div className={styles.renewalButton} onClick={timerParams.handleIncreaseTime}>
                 <IncreaseTimeIcon/>
             </div>
         </div>

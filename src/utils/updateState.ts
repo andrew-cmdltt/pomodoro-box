@@ -1,6 +1,6 @@
 import {ITasksData} from "../store/tasks/actions";
 
-type ActionTypes = "INCREASE_POMODORO" | "DECREASE_POMODORO" | "EDIT_TASK"
+type ActionTypes = "INCREASE_POMODORO" | "DECREASE_POMODORO" | "EDIT_TASK" | "SET_EDIT_TASK"
 
 export function updateTasks(tasks: ITasksData[], data: ITasksData | undefined, actionType: ActionTypes) {
     for (let i = 0; i < tasks.length; i++) {
@@ -18,6 +18,9 @@ export function updateTasks(tasks: ITasksData[], data: ITasksData | undefined, a
                     break
                 case "EDIT_TASK":
                     tasks[i]["title"] = data?.title
+                    break
+                case "SET_EDIT_TASK":
+                    tasks[i]["isEdit"] = data?.isEdit
             }
         }
     }

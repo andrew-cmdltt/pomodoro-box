@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './taskslist.module.css';
 import {Menu} from "./Menu";
-import {decreasePomodoro, increasePomodoro, ITasksData} from "../../../../store/tasks/actions";
+import {decreasePomodoro, increasePomodoro, ITasksData, setEditTask} from "../../../../store/tasks/actions";
 import {getTotalTime} from "../../../../utils/getTotalTime";
 import {useDispatch} from "react-redux";
 import {TaskEditForm} from "./TaskEditForm";
@@ -11,8 +11,6 @@ type Props = {
 }
 
 export function TasksList({tasks}: Props) {
-    const [isEdit, setIsEdit] = useState(false)
-
     const dispatch = useDispatch()
 
     const handleIncreasePomodoro = (id?: string) => {
@@ -21,6 +19,10 @@ export function TasksList({tasks}: Props) {
 
     const handleDecreasePomodoro = (id?: string) => {
         dispatch(decreasePomodoro({id: id}))
+    }
+
+    const handleSetEditTask = (id?: string, isEdit?: boolean) => {
+        dispatch(setEditTask({id: id, isEdit: isEdit}))
     }
 
     return (
@@ -33,13 +35,13 @@ export function TasksList({tasks}: Props) {
                             <Menu
                                 id={task.id}
                                 handleDecreasePomodoro={handleDecreasePomodoro}
-                                setIsEdit={setIsEdit}
+                                handleSetEditTask={handleSetEditTask}
                                 handleIncreasePomodoro={handleIncreasePomodoro}
                             />
                             <div className={styles.pomodoroCounter}>{task.pomodoro_count}</div>
                             <div className={styles.taskTitle}>
-                                {isEdit ? (
-                                    <TaskEditForm title={task.title} setIsEdit={setIsEdit} id={task.id}/>
+                                {task.isEdit ? (
+                                    <TaskEditForm title={task.title} id={task.id}/>
                                 ) :
                                     (<>{task.title}</>)
                                 }

@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import styles from './menu.module.css';
 import {Dropdown} from "../../../../Dropdown";
 import {MenuButton} from "./MenuButton";
@@ -8,10 +8,10 @@ type Props = {
     id?: string
     handleIncreasePomodoro: (id?: string) => void
     handleDecreasePomodoro: (id?: string) => void
-    setIsEdit: Dispatch<SetStateAction<boolean>>
+    handleSetEditTask: (id?: string, isEdit?: boolean) => void
 }
 
-export function Menu({handleDecreasePomodoro, setIsEdit, handleIncreasePomodoro, id}: Props) {
+export function Menu({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id}: Props) {
     return (
         <div className={styles.menu}>
             <Dropdown
@@ -22,7 +22,7 @@ export function Menu({handleDecreasePomodoro, setIsEdit, handleIncreasePomodoro,
                     <MenuItemsList
                         id={id}
                         handleDecreasePomodoro={handleDecreasePomodoro}
-                        setIsEdit={setIsEdit}
+                        handleSetEditTask={handleSetEditTask}
                         handleIncreasePomodoro={handleIncreasePomodoro}
                     />
                 </div>

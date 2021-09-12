@@ -1,11 +1,12 @@
 import {ActionCreator} from "redux";
-import {ADD_TASK, DECREASE_POMODORO, DELETE_TASK, EDIT_TASK, INCREASE_POMODORO} from "./types";
+import {ADD_TASK, DECREASE_POMODORO, DELETE_TASK, EDIT_TASK, INCREASE_POMODORO, SET_EDIT_TASK} from "./types";
 
 export interface ITasksData {
     id?: string;
     title?: string;
     pomodoro_count: number;
     time_count: number;
+    isEdit?: boolean;
 }
 
 export type AddTaskAction = {
@@ -57,5 +58,16 @@ export const editTask: ActionCreator<EditTaskAction> = (data: ITasksData) => ({
     type: EDIT_TASK,
     data
 });
+
+export type SetEditTaskAction = {
+    type: typeof SET_EDIT_TASK;
+    data?: ITasksData;
+}
+
+export const setEditTask: ActionCreator<SetEditTaskAction> = (data: ITasksData) => ({
+    type: SET_EDIT_TASK,
+    data
+});
+
 
 

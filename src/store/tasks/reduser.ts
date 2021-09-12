@@ -5,7 +5,7 @@ import {
     DeleteTaskAction,
     IncreasePomodoroAction,
     DecreasePomodoroAction,
-    EditTaskAction
+    EditTaskAction, SetEditTaskAction
 } from "./actions";
 import {updateTasks} from "../../utils/updateState";
 
@@ -14,9 +14,8 @@ export type TaskState = {
 }
 
 type TaskActions = AddTaskAction
-    | DeleteTaskAction |
-    IncreasePomodoroAction |
-    DecreasePomodoroAction | EditTaskAction
+    | DeleteTaskAction | IncreasePomodoroAction |
+    DecreasePomodoroAction | EditTaskAction | SetEditTaskAction
 
 export const tasksReducer: Reducer<TaskState, TaskActions> = (state, action) => {
     switch (action.type) {
@@ -40,9 +39,12 @@ export const tasksReducer: Reducer<TaskState, TaskActions> = (state, action) => 
             return {
                 ...state,
             };
+        case "SET_EDIT_TASK":
+            updateTasks(state.data, action.data, "SET_EDIT_TASK")
+            return {
+                ...state,
+            };
         case "EDIT_TASK":
-            console.log(action.data)
-
             updateTasks(state.data, action.data, "EDIT_TASK")
             return {
                 ...state,

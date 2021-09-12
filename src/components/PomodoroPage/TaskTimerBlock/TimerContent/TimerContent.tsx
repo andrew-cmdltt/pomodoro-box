@@ -1,31 +1,17 @@
 import React from 'react';
 import styles from './timercontent.module.css';
 import {Timer} from "./Timer";
+import {UseTimerParams} from "../../../../hooks/useTimer";
 
 type Props = {
-    pomodoroCount: number
-    minutes: number
-    seconds: number
-    handleStart: () => void
-    handlePause: () => void
-    handleIncreaseTime: () => void
-    isBreak: boolean
-    isWork: boolean
-    isPause: boolean
+    timerParams: UseTimerParams,
 }
 
-export function TimerContent(props: Props) {
+export function TimerContent({timerParams}: Props) {
     return (
         <div className={styles.timerContent}>
-            <Timer pomodoroCount={2}
-                   handleIncreaseTime={props.handleIncreaseTime}
-                   handleStart={props.handleStart}
-                   handlePause={props.handlePause}
-                   minutes={props.minutes}
-                   seconds={props.seconds}
-                   isBreak={props.isBreak}
-                   isWork={props.isWork}
-                   isPause={props.isPause}
+            <Timer
+                timerParams={timerParams}
             />
         </div>
     );

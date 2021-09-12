@@ -1,14 +1,13 @@
-import React, {ChangeEvent, Dispatch, FormEvent, SetStateAction, useState} from 'react';
-import {editTask} from "../../../../../store/tasks/actions";
+import React, {ChangeEvent, FormEvent, useState} from 'react';
+import {editTask, setEditTask} from "../../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
 
 type Props = {
     id?: string
     title?: string
-    setIsEdit: Dispatch<SetStateAction<boolean>>
 }
 
-export function TaskEditForm({title, id, setIsEdit}: Props) {
+export function TaskEditForm({title, id}: Props) {
     const dispatch = useDispatch()
 
     const [value, setValue] = useState(title)
@@ -21,8 +20,7 @@ export function TaskEditForm({title, id, setIsEdit}: Props) {
         event.preventDefault()
 
         dispatch(editTask({id: id, title: value}))
-        console.log("submited")
-        setIsEdit(false)
+        dispatch(setEditTask({id: id, isEdit: false}))
     }
 
     return (

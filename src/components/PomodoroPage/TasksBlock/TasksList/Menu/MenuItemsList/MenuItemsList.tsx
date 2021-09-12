@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import styles from './menuitemslist.module.css';
 import {DecreasePomodoroIcon, EditIcon, IncreasePomodoroIcon, DeleteIcon} from "../../../../../Icons";
 import { Link } from 'react-router-dom';
@@ -7,10 +7,10 @@ type Props = {
     id?: string
     handleIncreasePomodoro: (id?: string) => void
     handleDecreasePomodoro: (id?: string) => void
-    setIsEdit: Dispatch<SetStateAction<boolean>>
+    handleSetEditTask: (id?: string, isEdit?: boolean) => void
 }
 
-export function MenuItemsList({handleDecreasePomodoro, setIsEdit, handleIncreasePomodoro, id}: Props) {
+export function MenuItemsList({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id}: Props) {
     return (
         <ul className={styles.menuItemsList}>
             <li className={styles.menuItem} onClick={() => handleIncreasePomodoro(id)}>
@@ -21,7 +21,7 @@ export function MenuItemsList({handleDecreasePomodoro, setIsEdit, handleIncrease
                 <DecreasePomodoroIcon/>
                 <span>Уменьшить</span>
             </li>
-            <li className={styles.menuItem} onClick={() => setIsEdit(true)}>
+            <li className={styles.menuItem} onClick={() => handleSetEditTask(id, true)}>
                 <EditIcon/>
                 <span>Редактировать</span>
             </li>

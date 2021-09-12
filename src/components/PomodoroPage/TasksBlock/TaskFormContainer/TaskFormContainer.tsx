@@ -19,10 +19,12 @@ export function TaskFormContainer() {
             setError("Введите значение более 3-х символов")
         } else {
             setError("")
+            setValue("")
             dispatch(addTask({
                 id: uuid.v4(),
                 title: value,
                 pomodoro_count: 1,
+                isEdit: false,
             }))
         }
     }
