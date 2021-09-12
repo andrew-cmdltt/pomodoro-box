@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './timerheader.module.css';
-import {getTimerClassName, Params} from "../../../../utils/getTimerHeaderClass";
+import {getTimerClassName, GetTimerClassNameParams} from "../../../../utils/getTimerHeaderClass";
 import {UseTimerParams} from "../../../../hooks/useTimer";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 }
 
 export function TimerHeader({timerParams}: Props) {
-    const params: Params = {
+    const params: GetTimerClassNameParams = {
         isWork: timerParams.isWork,
         isBreak: timerParams.isBreak,
         defaultClass: styles.timerHeader,

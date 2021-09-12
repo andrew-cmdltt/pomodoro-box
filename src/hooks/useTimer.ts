@@ -56,6 +56,7 @@ export function useTimer(tasks: ITasksData[]) {
     const handleStop = () => {
         setIsWork(false)
         setMinutes(25);
+        setSeconds(60);
     }
 
     const handlePause = () => {

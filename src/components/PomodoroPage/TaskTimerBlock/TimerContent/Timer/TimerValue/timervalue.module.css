@@ -1,0 +1,17 @@
+.timerValue {
+    font-family: SF UI Display;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 150px;
+    line-height: 179px;
+    margin-top: 50px;
+    color: #333333;
+}
+
+.work {
+    color: #DC3E22;
+}
+
+.break {
+    color: #A8B64F;
+}

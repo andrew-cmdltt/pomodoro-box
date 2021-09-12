@@ -1,4 +1,4 @@
-export type Params = {
+export type GetTimerClassNameParams = {
     defaultClass: string,
     onWorkClass: string,
     onBreakClass: string,
@@ -7,7 +7,7 @@ export type Params = {
     isPause?: boolean
 }
 
-export function getTimerClassName(params: Params) {
+export function getTimerClassName(params: GetTimerClassNameParams) {
     let timerClass = params.defaultClass
 
     if (params.isWork && !params.isPause) {
