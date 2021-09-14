@@ -24,6 +24,10 @@
     background: #A8B64F;
 }
 
+.proceedButton {
+    width: 196px;
+}
+
 .startButton:hover {
     background: #899441;
 }

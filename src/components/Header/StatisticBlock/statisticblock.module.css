@@ -1,16 +1,15 @@
 .statisticBlock {
     display: flex;
     align-items: center;
-    margin-left: 960px;
+    margin-left: 880px;
     cursor: pointer;
 }
 
 .statisticIcon {
-    padding-right: 9px;
+    padding-right: 7px;
 }
 
 .statisticText {
-    font-family: SF UI Display, serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;

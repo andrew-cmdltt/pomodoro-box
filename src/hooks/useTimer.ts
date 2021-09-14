@@ -46,6 +46,7 @@ export function useTimer(tasks: ITasksData[]) {
             dispatch(deleteTask(currentTask.id))
         }
         setMinutes(25);
+        setSeconds(60);
     }
 
     const handleStart = () => {
