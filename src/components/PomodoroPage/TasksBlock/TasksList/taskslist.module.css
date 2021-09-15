@@ -6,6 +6,7 @@
 }
 
 .tasksList li {
+    position: relative;
     display: flex;
     flex-direction: row;
     padding-top: 19px;

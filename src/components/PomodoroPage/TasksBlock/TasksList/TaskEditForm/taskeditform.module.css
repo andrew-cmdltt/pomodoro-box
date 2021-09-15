@@ -2,3 +2,11 @@
     padding-top: 5px;
     padding-left: 10px;
 }
+
+.error {
+    position: absolute;
+    color: #DC3E22;
+    font-size: 13px;
+    top: 48px;
+    right: 240px;
+}

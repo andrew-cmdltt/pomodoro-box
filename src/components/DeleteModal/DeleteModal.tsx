@@ -30,7 +30,7 @@ export function DeleteModal() {
             component="div"
             className="container"
             top={-400}
-            right={620}
+            right={550}
         >
             <div className={styles.deleteModal} ref={ref}>
                 <span className={styles.modalTitle}>Удалить задачу?</span>
