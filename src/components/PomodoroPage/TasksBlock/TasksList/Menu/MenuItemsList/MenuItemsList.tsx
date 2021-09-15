@@ -8,17 +8,20 @@ type Props = {
     handleIncreasePomodoro: (id?: string) => void
     handleDecreasePomodoro: (id?: string) => void
     handleSetEditTask: (id?: string, isEdit?: boolean) => void
+    pomodoroCount: number
 }
 
-export function MenuItemsList({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id}: Props) {
+export function MenuItemsList({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id, pomodoroCount}: Props) {
+    const menuItemDecreaseClass = pomodoroCount === 1 ? styles.menuItem + " " + styles.disabled : styles.menuItem
+
     return (
         <ul className={styles.menuItemsList}>
             <li className={styles.menuItem} onClick={() => handleIncreasePomodoro(id)}>
                 <IncreasePomodoroIcon/>
                 <span>Увеличить</span>
             </li>
-            <li className={styles.menuItem} onClick={() => handleDecreasePomodoro(id)}>
-                <DecreasePomodoroIcon/>
+            <li className={menuItemDecreaseClass} onClick={() => handleDecreasePomodoro(id)}>
+                <DecreasePomodoroIcon />
                 <span>Уменьшить</span>
             </li>
             <li className={styles.menuItem} onClick={() => handleSetEditTask(id, true)}>

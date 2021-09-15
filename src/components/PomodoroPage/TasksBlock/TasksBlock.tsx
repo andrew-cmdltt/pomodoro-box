@@ -15,7 +15,7 @@ export function TasksBlock({isWork, tasks}: Props) {
         <div className={styles.tasksBlock}>
             <Instruction/>
             <TaskFormContainer/>
-            {tasks.length > 0 && !isWork && (<TasksList tasks={tasks} />)}
+            {tasks.length > 0 && !isWork && (<TasksList tasks={tasks}/>)}
         </div>
     );
 }

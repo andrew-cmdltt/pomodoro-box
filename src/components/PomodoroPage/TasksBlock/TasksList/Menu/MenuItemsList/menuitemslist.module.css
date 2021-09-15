@@ -30,3 +30,7 @@
     line-height: 17px;
     color: #999999;
 }
+
+.disabled svg path {
+    fill: #C4C4C4;
+}

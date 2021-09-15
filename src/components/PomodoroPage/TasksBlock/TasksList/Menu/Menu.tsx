@@ -9,9 +9,10 @@ type Props = {
     handleIncreasePomodoro: (id?: string) => void
     handleDecreasePomodoro: (id?: string) => void
     handleSetEditTask: (id?: string, isEdit?: boolean) => void
+    pomodoroCount: number
 }
 
-export function Menu({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id}: Props) {
+export function Menu({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id, pomodoroCount}: Props) {
     return (
         <div className={styles.menu}>
             <Dropdown
@@ -24,7 +25,7 @@ export function Menu({handleDecreasePomodoro, handleSetEditTask, handleIncreaseP
                         handleDecreasePomodoro={handleDecreasePomodoro}
                         handleSetEditTask={handleSetEditTask}
                         handleIncreasePomodoro={handleIncreasePomodoro}
-                    />
+                        pomodoroCount={pomodoroCount}/>
                 </div>
             </Dropdown>
         </div>

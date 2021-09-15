@@ -37,16 +37,14 @@ export function TasksList({tasks}: Props) {
                                 handleDecreasePomodoro={handleDecreasePomodoro}
                                 handleSetEditTask={handleSetEditTask}
                                 handleIncreasePomodoro={handleIncreasePomodoro}
-                            />
+                                pomodoroCount={task.pomodoro_count}/>
                             <div className={styles.pomodoroCounter}>{task.pomodoro_count}</div>
-                            <div className={styles.taskTitle}>
-                                {task.isEdit ? (
-                                    <TaskEditForm title={task.title} id={task.id}/>
-                                ) :
-                                    (<>{task.title}</>)
-                                }
-
-                            </div>
+                            {!task.isEdit ? (
+                                <div className={styles.taskTitle}>
+                                    {task.title}
+                                </div>) : (
+                                <TaskEditForm title={task.title} id={task.id}/>
+                            )}
                         </li>
                         <div className={styles.divider}/>
                     </div>

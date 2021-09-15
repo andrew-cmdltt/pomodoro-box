@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {editTask, setEditTask} from "../../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
+import styles from './taskeditform.module.css'
 
 type Props = {
     id?: string
@@ -24,7 +25,7 @@ export function TaskEditForm({title, id}: Props) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.taskEditForm}>
             <input type="text" value={value} onChange={handleChange}/>
         </form>
     );
