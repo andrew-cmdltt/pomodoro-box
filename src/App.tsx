@@ -11,6 +11,7 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {DeleteModal} from "./components/DeleteModal";
+import {StatisticPage} from "./components/StatisticPage";
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk)
@@ -27,6 +28,9 @@ function App() {
                         <Switch>
                             <Route exact path="/">
                                 <PomodoroPage/>
+                            </Route>
+                            <Route exact path="/statistic">
+                                <StatisticPage/>
                             </Route>
                             <Route path="/delete/:id">
                                 <PomodoroPage/>

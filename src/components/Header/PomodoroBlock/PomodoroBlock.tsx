@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './pomodoroblock.module.css';
 
 export function PomodoroBlock() {
     return (
-        <div className={styles.pomodoroBlock}>
+        <Link className={styles.pomodoroBlock} to="/">
             <div className={styles.pomodoroIcon}>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g>
@@ -25,6 +26,6 @@ export function PomodoroBlock() {
                 </svg>
             </div>
             <span className={styles.pomodoroText}>pomodoro_box</span>
-        </div>
+        </Link>
     );
 }
