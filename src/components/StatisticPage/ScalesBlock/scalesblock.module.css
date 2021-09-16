@@ -1,0 +1,31 @@
+.statisticDropdown {
+    position: absolute;
+    top: 0;
+    right: 80px;
+    list-style: none;
+}
+
+.statisticDropdown li {
+    height: 55px;
+    width: 370px;
+    background: #F4F4F4;
+}
+
+.statisticDropdown li span {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 17px;
+    color: #333333;
+}
+
+.statisticDropdown svg {
+    position: absolute;
+    left: 335px;
+    top: 22px;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
