@@ -29,8 +29,11 @@ export function MenuItemsList({handleDecreasePomodoro, handleSetEditTask, handle
                 <span>Редактировать</span>
             </li>
             <li className={styles.menuItem}>
-                <DeleteIcon/>
-                <Link to={`/delete/${id}`}><span>Удалить</span></Link>
+
+                <Link to={`/delete/${id}`}>
+                    <DeleteIcon/>
+                    <span>Удалить</span>
+                </Link>
             </li>
         </ul>
     );

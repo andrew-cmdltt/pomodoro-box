@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {deleteTask, ITasksData} from "../store/tasks/actions";
 import {useDispatch} from "react-redux";
 
@@ -33,7 +33,7 @@ export function useTimer(tasks: ITasksData[]) {
     const [isBreak, setIsBreak] = useState(false)
     const [isPause, setIsPause] = useState(false)
 
-    const setCompleteState = () => {
+    const setCompleteState = useCallback(() => {
         setIsWork(false)
         setIsPause(false)
         setIsBreak(false)
@@ -42,12 +42,11 @@ export function useTimer(tasks: ITasksData[]) {
             setPomodoro(pomodoro => pomodoro + 1)
         } else {
             setCurrentTaskNumber(currentTaskNumber => currentTaskNumber + 1)
-            setPomodoro(1)
             dispatch(deleteTask(currentTask.id))
         }
         setMinutes(25);
         setSeconds(60);
-    }
+    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro])
 
     const handleStart = () => {
         setIsWork(true)
@@ -91,7 +90,7 @@ export function useTimer(tasks: ITasksData[]) {
             }
         }, 5);
         return () => clearInterval(interval);
-    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber]);
+    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState]);
 
     const params: UseTimerParams = {
         currentTaskNumber: currentTaskNumber,
