@@ -1,6 +1,6 @@
 .statisticDropdown {
     position: absolute;
-    top: 0;
+    top: -10px;
     right: 80px;
     list-style: none;
 }
