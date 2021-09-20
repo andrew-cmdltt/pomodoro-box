@@ -1,12 +1,12 @@
 import {Reducer} from "react";
-import {IStatisticsData, SetStatisticAction} from "./actions";
+import {IStatisticsData, SetStatisticsAction} from "./actions";
 
 export type StatisticsState = {
     data: IStatisticsData[];
 }
 
-type StatisticActions = SetStatisticAction
-export const statisticsReducer: Reducer<StatisticsState, StatisticActions> = (state, action) => {
+type StatisticsActions = SetStatisticsAction
+export const statisticsReducer: Reducer<StatisticsState, StatisticsActions> = (state, action) => {
     switch (action.type) {
         case "SET_STATISTICS":
             return {

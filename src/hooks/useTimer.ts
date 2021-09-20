@@ -1,6 +1,8 @@
 import {useCallback, useEffect, useState} from "react";
 import {deleteTask, ITasksData} from "../store/tasks/actions";
 import {useDispatch} from "react-redux";
+import {setStatistics} from "../store/statistics/actions";
+const uuid = require("uuid");
 
 export type UseTimerParams = {
     currentTaskNumber: number,
@@ -22,7 +24,7 @@ export function useTimer(tasks: ITasksData[]) {
     const dispatch = useDispatch()
 
     const currentTask = tasks[0]
-    
+
     const [pomodoro, setPomodoro] = useState(1)
     const [currentTaskNumber, setCurrentTaskNumber] = useState(1)
 
@@ -32,6 +34,9 @@ export function useTimer(tasks: ITasksData[]) {
     const [isWork, setIsWork] = useState(false)
     const [isBreak, setIsBreak] = useState(false)
     const [isPause, setIsPause] = useState(false)
+
+    const [timeOnPause, setTimeOnPause] = useState(0)
+    const [stopping, setStopping] = useState(0)
 
     const setCompleteState = useCallback(() => {
         setIsWork(false)
@@ -43,10 +48,17 @@ export function useTimer(tasks: ITasksData[]) {
         } else {
             setCurrentTaskNumber(currentTaskNumber => currentTaskNumber + 1)
             dispatch(deleteTask(currentTask.id))
+            dispatch(setStatistics({
+                id: uuid.v4(),
+                date: new Date(),
+                time_on_pause: timeOnPause,
+                stopping: stopping,
+                pomodoro_count: pomodoro
+            }))
         }
         setMinutes(25);
         setSeconds(60);
-    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro])
+    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro, stopping, timeOnPause])
 
     const handleStart = () => {
         setIsWork(true)
@@ -57,10 +69,12 @@ export function useTimer(tasks: ITasksData[]) {
         setIsWork(false)
         setMinutes(25);
         setSeconds(60);
+        setStopping(stopping => stopping + 1)
     }
 
     const handlePause = () => {
         setIsPause(!isPause)
+        setStopping(stopping => stopping + 1)
     }
 
     const handleIncreaseTime = () => {
@@ -87,10 +101,15 @@ export function useTimer(tasks: ITasksData[]) {
                         }
                     }
                 }
+            } else if (isWork && isPause) {
+                setTimeOnPause(timeOnPause => timeOnPause + 1)
             }
-        }, 5);
+        }, 1000);
         return () => clearInterval(interval);
-    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState]);
+    }, [isBreak, isPause,
+        isWork, minutes,
+        seconds, currentTaskNumber,
+        setCompleteState, timeOnPause]);
 
     const params: UseTimerParams = {
         currentTaskNumber: currentTaskNumber,

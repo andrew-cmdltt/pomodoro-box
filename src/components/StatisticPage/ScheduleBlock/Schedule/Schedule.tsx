@@ -2,58 +2,29 @@ import React from 'react';
 import styles from './schedule.module.css';
 
 export function Schedule() {
+    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+    const timeValues = ["1 ч 40", "1 ч 15", "50", "25"]
+
     return (
         <div className={styles.schedule}>
             <div className={styles.dayOfWeekAxis}>
                 <ul>
-                    <li>
-                        <span>Пн</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Вт</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Ср</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Чт</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Пт</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Сб</span>
-                        <div className={styles.scale}/>
-                    </li>
-                    <li>
-                        <span>Вс</span>
-                        <div className={styles.scale}/>
-                    </li>
+                    {days.map((day, index) => (
+                        <li key={index}>
+                            <span>{day}</span>
+                            <div className={styles.scale} />
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div className={styles.timeAxis}>
                 <ul>
-                    <li>
-                        <div className={styles.divider}/>
-                        <span>1 ч 40 мин</span>
-                    </li>
-                    <li>
-                        <div className={styles.divider}/>
-                        <span>1 ч 15 мин</span>
-                    </li>
-                    <li>
-                        <div className={styles.divider}/>
-                        <span>50 мин</span>
-                    </li>
-                    <li>
-                        <div className={styles.divider}/>
-                        <span>25 мин</span>
-                    </li>
+                    {timeValues.map((timeValue, index) => (
+                        <li key={index}>
+                            <div className={styles.divider}/>
+                            <span>{timeValue} мин</span>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

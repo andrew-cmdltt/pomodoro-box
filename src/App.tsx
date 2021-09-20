@@ -29,7 +29,7 @@ function App() {
                             <Route exact path="/">
                                 <PomodoroPage/>
                             </Route>
-                            <Route exact path="/statistic">
+                            <Route exact path="/statistics/week/:week/day/:day">
                                 <StatisticPage/>
                             </Route>
                             <Route path="/delete/:id">
