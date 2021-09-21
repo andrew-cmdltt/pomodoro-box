@@ -1,6 +1,7 @@
 import {IStatisticsData} from "../store/statistics/actions";
 import moment from "moment";
-import {getWeekDay} from "./getWeekDay";
+import {getDayOfWeekByDate} from "./getDayOfWeekByDate";
+
 const currentDate = moment();
 
 export type StatisticsByWeek = {
@@ -11,33 +12,47 @@ export type StatisticsByWeek = {
     pomodoro_count: number
 }
 
-export function getStatisticsByWeek(statistics: IStatisticsData[]) {
+export function getStatisticsByWeek(statistics: IStatisticsData[], week: "current" | "last" | "2 weeks ago") {
     let statisticsByWeek: StatisticsByWeek[] = [];
 
     let statisticDates: Date[] = []
+
+    let filtered: Date[]
 
     statistics.forEach(item => {
         statisticDates.push(item.date)
     });
 
-    let filtered = statisticDates.filter(date => moment(date).isSame(currentDate, 'week'));
-    // let filtered = statisticDates.filter(date => moment(date).isSame(moment()
-    //     .subtract(2, 'weeks'), "week"))
+    switch (week) {
+        case "current":
+            filtered = statisticDates.filter(date => moment(date).isSame(currentDate, 'week'));
+            break
+        case "last":
+            filtered = statisticDates.filter(date => moment(date).isSame(moment()
+                .subtract(1, 'weeks'), "week"))
+            break
+        case "2 weeks ago":
+            filtered = statisticDates.filter(date => moment(date).isSame(moment()
+                .subtract(2, 'weeks'), "week"))
+            break
+    }
 
-    let res = Object.fromEntries(statistics.map(item => [getWeekDay(new Date(item.date), "abbreviated"), {
+    let res = Object.fromEntries(statistics.map(item => [getDayOfWeekByDate(new Date(item.date), "abbreviated"), {
         stopping: 0, pomodoro_count: 0, time_on_pause: 0, dayOfWeek: "", focus: 35
     }]));
 
     statistics.forEach(item => {
         if (filtered.includes(item.date)) {
-            res[getWeekDay(new Date(item.date), "abbreviated")].stopping += item.stopping
-            res[getWeekDay(new Date(item.date), "abbreviated")].pomodoro_count += item.pomodoro_count
-            res[getWeekDay(new Date(item.date), "abbreviated")].time_on_pause += item.time_on_pause
-            res[getWeekDay(new Date(item.date), "abbreviated")].dayOfWeek = getWeekDay(new Date(item.date), "abbreviated")
+            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].stopping += item.stopping
+            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].pomodoro_count += item.pomodoro_count
+            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].time_on_pause += item.time_on_pause
+            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].dayOfWeek = getDayOfWeekByDate(new Date(item.date), "abbreviated")
         }
     })
 
-    for (let key in res) {statisticsByWeek.push(res[key])}
+    for (let key in res) {
+        statisticsByWeek.push(res[key])
+    }
 
     return statisticsByWeek
 }

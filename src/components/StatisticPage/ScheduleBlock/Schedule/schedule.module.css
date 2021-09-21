@@ -32,7 +32,7 @@
     margin-left: 80px;
 }
 
-.dayOfWeekAxis ul li span:hover, .dayOfWeekAxis .isCurrentDay  {
+.dayOfWeekAxis ul li span:hover, .dayOfWeekAxis .spanActive  {
     color: #DC3E22;
 }
 
@@ -47,14 +47,13 @@
     cursor: pointer;
 }
 
-.scale:hover {
+.scale:active {
     background: #EE735D;
 }
 
-.scale:active {
+.scaleActive {
     background: #DC3E22;;
 }
-
 
 .timeAxis ul {
     position: absolute;

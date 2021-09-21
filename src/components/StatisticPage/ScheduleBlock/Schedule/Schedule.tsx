@@ -1,9 +1,18 @@
 import React from 'react';
 import styles from './schedule.module.css';
+import {Link, useParams} from "react-router-dom";
+
+type Params = {
+    dayURI: string
+    weekURI: string
+}
 
 export function Schedule() {
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     const timeValues = ["1 ч 40", "1 ч 15", "50", "25"]
+
+    const {dayURI, weekURI}: Params = useParams();
+    console.log(dayURI)
 
     return (
         <div className={styles.schedule}>
@@ -11,8 +20,13 @@ export function Schedule() {
                 <ul>
                     {days.map((day, index) => (
                         <li key={index}>
-                            <span>{day}</span>
-                            <div className={styles.scale} />
+                            {day === dayURI ? (<span className={styles.spanActive}>{day}</span>) : (<span>{day}</span>)}
+                            <Link to={`/statistics/week/current/day/${day}`}>
+                                {day === dayURI ? (
+                                    <div className={styles.scale + " " + styles.scaleActive}/>
+                                ) : (
+                                    <div className={styles.scale}/>)}
+                            </Link>
                         </li>
                     ))}
                 </ul>
