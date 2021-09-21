@@ -11,8 +11,7 @@ export function Schedule() {
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     const timeValues = ["1 ч 40", "1 ч 15", "50", "25"]
 
-    const {dayURI, weekURI}: Params = useParams();
-    console.log(dayURI)
+    const {dayURI}: Params = useParams();
 
     return (
         <div className={styles.schedule}>

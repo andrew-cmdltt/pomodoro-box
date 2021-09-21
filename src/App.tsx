@@ -21,7 +21,6 @@ function App() {
     return (
         <Provider store={store}>
             <BrowserRouter>
-
                 <Layout>
                     <Header/>
                     <Content>

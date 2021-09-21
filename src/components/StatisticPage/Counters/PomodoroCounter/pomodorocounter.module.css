@@ -6,6 +6,11 @@
     background: #F4F4F4;
 }
 
+.pomodoroCounter svg {
+    margin-top: 32px;
+    margin-left: 86px;
+}
+
 .main {
     display: flex;
     flex-direction: row;

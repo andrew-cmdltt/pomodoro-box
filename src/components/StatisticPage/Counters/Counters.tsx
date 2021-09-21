@@ -3,12 +3,15 @@ import styles from './counters.module.css';
 import {PomodoroCounter} from "./PomodoroCounter";
 import {TimerCounters} from "./TimerCounters";
 
-export function Counters() {
+type Props = {
+    pomodoroCount: number
+}
+
+export function Counters({pomodoroCount}: Props) {
     return (
         <div className={styles.counters}>
-            <PomodoroCounter />
+            <PomodoroCounter pomodoroCount={pomodoroCount}/>
             <TimerCounters />
         </div>
-
     );
 }

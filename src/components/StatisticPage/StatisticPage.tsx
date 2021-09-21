@@ -20,11 +20,12 @@ export function StatisticPage() {
     const {dayURI, weekURI}: Params = useParams();
     const statisticsByWeek: StatisticsByWeek[] = getStatisticsByWeek(statistics.data, weekURI)
     const statisticsByDayOfWeek: StatisticsByWeek = getStatisticsByDayOfWeek(dayURI, statisticsByWeek)
+
     return (
         <div className={styles.statisticPage}>
             <DayOfWeekBlock statisticsByDayOfWeek={statisticsByDayOfWeek} dayURI={dayURI}/>
-            <ScheduleBlock />
-            <Counters />
+            <ScheduleBlock/>
+            <Counters pomodoroCount={statisticsByDayOfWeek.pomodoro_count}/>
         </div>
     );
 }

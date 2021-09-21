@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './dayofweekblock.module.css';
 import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
 import {getDayOfWeekByAbbreviated} from "../../../utils/getDayOfWeekByAbbreviated";
-import {getDayOfWeekByDate} from "../../../utils/getDayOfWeekByDate";
 
 type Props = {
     statisticsByDayOfWeek: StatisticsByWeek,

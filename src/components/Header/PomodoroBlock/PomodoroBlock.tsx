@@ -7,7 +7,7 @@ export function PomodoroBlock() {
     return (
         <Link className={styles.pomodoroBlock} to="/">
             <div className={styles.pomodoroIcon}>
-                <PomodoroIcon variant={"first"} />
+                <PomodoroIcon />
             </div>
             <span className={styles.pomodoroText}>pomodoro_box</span>
         </Link>
