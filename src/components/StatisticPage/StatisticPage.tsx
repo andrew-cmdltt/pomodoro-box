@@ -24,8 +24,8 @@ export function StatisticPage() {
     return (
         <div className={styles.statisticPage}>
             <DayOfWeekBlock statisticsByDayOfWeek={statisticsByDayOfWeek} dayURI={dayURI}/>
-            <ScheduleBlock/>
-            <Counters pomodoroCount={statisticsByDayOfWeek.pomodoro_count}/>
+            <ScheduleBlock />
+            <Counters statisticsByDayOfWeek={statisticsByDayOfWeek}/>
         </div>
     );
 }

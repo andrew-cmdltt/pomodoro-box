@@ -2,16 +2,21 @@ import React from 'react';
 import styles from './counters.module.css';
 import {PomodoroCounter} from "./PomodoroCounter";
 import {TimerCounters} from "./TimerCounters";
+import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
 
 type Props = {
-    pomodoroCount: number
+    statisticsByDayOfWeek: StatisticsByWeek,
 }
 
-export function Counters({pomodoroCount}: Props) {
+
+export function Counters({statisticsByDayOfWeek}: Props) {
     return (
         <div className={styles.counters}>
-            <PomodoroCounter pomodoroCount={pomodoroCount}/>
-            <TimerCounters />
+            <PomodoroCounter pomodoroCount={statisticsByDayOfWeek.pomodoro_count}/>
+            <TimerCounters
+                focus={statisticsByDayOfWeek.focus}
+                stopping={statisticsByDayOfWeek.stopping}
+                timeOnPause={statisticsByDayOfWeek.time_on_pause}/>
         </div>
     );
 }

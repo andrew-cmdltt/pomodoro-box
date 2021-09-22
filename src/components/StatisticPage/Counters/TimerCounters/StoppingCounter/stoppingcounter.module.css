@@ -1,0 +1,47 @@
+.stoppingCounter {
+    position: relative;
+    width: 405px;
+    height: 179px;
+    background: #F4F4F4;
+    margin-left: 32px;
+}
+
+.title {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    color: #333333;
+}
+
+.value {
+    position: absolute;
+    top: 78px;
+    left: 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 76px;
+    color: #333333;
+}
+
+.icon {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.isStopping {
+    background: #C5F1FF;
+}
+
+.isStopping svg path {
+    stroke: #7FC2D7;
+}
+
+
+
+
