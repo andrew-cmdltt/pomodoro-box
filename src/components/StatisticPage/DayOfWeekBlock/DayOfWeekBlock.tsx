@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './dayofweekblock.module.css';
 import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
 import {getDayOfWeekByAbbreviated} from "../../../utils/getDayOfWeekByAbbreviated";
+import {secondsToHm} from "../../../utils/secondsToHm";
 
 type Props = {
     statisticsByDayOfWeek: StatisticsByWeek,
@@ -23,9 +24,12 @@ export function DayOfWeekBlock({statisticsByDayOfWeek, dayURI}: Props) {
                 <div className={styles.cardDescription}>
                     {statisticsByDayOfWeek.dayOfWeek ? (
                         <>
-                            <div>Вы работали над задачами</div>в течение <span>51 минуты</span>
+                            <div>Вы работали над задачами</div>
+                            в течение <span>
+                            {secondsToHm(statisticsByDayOfWeek.total_time, "full")}
+                            </span>
                         </>
-                        ) : "Нет данных"}
+                    ) : "Нет данных"}
                 </div>
             </div>
         </div>

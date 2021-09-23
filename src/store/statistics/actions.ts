@@ -5,6 +5,7 @@ export interface IStatisticsData {
     id?: string,
     date: Date,
     time_on_pause: number,
+    total_time: number,
     stopping: number,
     pomodoro_count: number
 }

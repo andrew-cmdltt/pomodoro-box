@@ -8,6 +8,7 @@ export type StatisticsByWeek = {
     dayOfWeek: string,
     focus: number,
     time_on_pause: number,
+    total_time: number,
     stopping: number,
     pomodoro_count: number
 }
@@ -38,7 +39,7 @@ export function getStatisticsByWeek(statistics: IStatisticsData[], week: "curren
     }
 
     let res = Object.fromEntries(statistics.map(item => [getDayOfWeekByDate(new Date(item.date), "abbreviated"), {
-        stopping: 0, pomodoro_count: 0, time_on_pause: 0, dayOfWeek: "", focus: 35
+        stopping: 0, pomodoro_count: 0, time_on_pause: 0, dayOfWeek: "", focus: 35, total_time: 0
     }]));
 
     statistics.forEach(item => {
@@ -46,6 +47,7 @@ export function getStatisticsByWeek(statistics: IStatisticsData[], week: "curren
             res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].stopping += item.stopping
             res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].pomodoro_count += item.pomodoro_count
             res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].time_on_pause += item.time_on_pause
+            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].total_time += item.total_time
             res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].dayOfWeek = getDayOfWeekByDate(new Date(item.date), "abbreviated")
         }
     })

@@ -11,7 +11,7 @@ export function Schedule() {
     const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     const timeValues = ["1 ч 40", "1 ч 15", "50", "25"]
 
-    const {dayURI}: Params = useParams();
+    const {dayURI, weekURI}: Params = useParams();
 
     return (
         <div className={styles.schedule}>
@@ -20,7 +20,7 @@ export function Schedule() {
                     {days.map((day, index) => (
                         <li key={index}>
                             {day === dayURI ? (<span className={styles.spanActive}>{day}</span>) : (<span>{day}</span>)}
-                            <Link to={`/statistics/week/current/day/${day}`}>
+                            <Link to={`/statistics/week/${weekURI}/day/${day}`}>
                                 {day === dayURI ? (
                                     <div className={styles.scale + " " + styles.scaleActive}/>
                                 ) : (

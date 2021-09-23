@@ -36,6 +36,7 @@ export function useTimer(tasks: ITasksData[]) {
     const [isPause, setIsPause] = useState(false)
 
     const [timeOnPause, setTimeOnPause] = useState(0)
+    const [totalTime, setTotalTime] = useState(0)
     const [stopping, setStopping] = useState(0)
 
     const setCompleteState = useCallback(() => {
@@ -53,16 +54,19 @@ export function useTimer(tasks: ITasksData[]) {
                 date: new Date(),
                 time_on_pause: timeOnPause,
                 stopping: stopping,
-                pomodoro_count: pomodoro
+                pomodoro_count: pomodoro,
+                total_time: totalTime
             }))
         }
         setMinutes(25);
         setSeconds(60);
-    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro, stopping, timeOnPause])
+    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro, stopping, timeOnPause, totalTime])
 
     const handleStart = () => {
         setIsWork(true)
+        setSeconds(seconds => seconds - 1);
         setMinutes(minutes => minutes - 1);
+        setTotalTime(totalTime => totalTime + 1)
     }
 
     const handleStop = () => {
@@ -87,11 +91,15 @@ export function useTimer(tasks: ITasksData[]) {
 
     useEffect(() => {
         const interval = setInterval(() => {
+            if (isWork) {
+                setTotalTime(totalTime => totalTime + 1)
+            }
+
             if (isWork && !isPause) {
                 setSeconds(seconds => seconds - 1);
                 if (seconds === 0) {
+                    setSeconds(59);
                     setMinutes(minutes => minutes - 1);
-                    setSeconds(60);
                     if (minutes === 0) {
                         if (isBreak) {
                             setCompleteState()
@@ -104,12 +112,9 @@ export function useTimer(tasks: ITasksData[]) {
             } else if (isWork && isPause) {
                 setTimeOnPause(timeOnPause => timeOnPause + 1)
             }
-        }, 1000);
+        }, 5);
         return () => clearInterval(interval);
-    }, [isBreak, isPause,
-        isWork, minutes,
-        seconds, currentTaskNumber,
-        setCompleteState, timeOnPause]);
+    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState, timeOnPause, totalTime]);
 
     const params: UseTimerParams = {
         currentTaskNumber: currentTaskNumber,
