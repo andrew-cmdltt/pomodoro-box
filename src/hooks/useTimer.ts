@@ -36,7 +36,7 @@ export function useTimer(tasks: ITasksData[]) {
     const [isPause, setIsPause] = useState(false)
 
     const [timeOnPause, setTimeOnPause] = useState(0)
-    const [totalTime, setTotalTime] = useState(0)
+    const [taskExecutionTime, setTaskExecutionTime] = useState(0)
     const [stopping, setStopping] = useState(0)
 
     const setCompleteState = useCallback(() => {
@@ -55,18 +55,18 @@ export function useTimer(tasks: ITasksData[]) {
                 time_on_pause: timeOnPause,
                 stopping: stopping,
                 pomodoro_count: pomodoro,
-                total_time: totalTime
+                task_execution_time: taskExecutionTime
             }))
         }
         setMinutes(25);
         setSeconds(60);
-    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro, stopping, timeOnPause, totalTime])
+    }, [currentTask?.id, currentTask?.pomodoro_count, dispatch, pomodoro, stopping, taskExecutionTime, timeOnPause])
 
     const handleStart = () => {
         setIsWork(true)
         setSeconds(seconds => seconds - 1);
         setMinutes(minutes => minutes - 1);
-        setTotalTime(totalTime => totalTime + 1)
+        setTaskExecutionTime(taskExecutionTime => taskExecutionTime + 1)
     }
 
     const handleStop = () => {
@@ -91,8 +91,8 @@ export function useTimer(tasks: ITasksData[]) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (isWork) {
-                setTotalTime(totalTime => totalTime + 1)
+            if (isWork && !isBreak && !isPause) {
+                setTaskExecutionTime(taskExecutionTime => taskExecutionTime + 1)
             }
 
             if (isWork && !isPause) {
@@ -114,7 +114,7 @@ export function useTimer(tasks: ITasksData[]) {
             }
         }, 5);
         return () => clearInterval(interval);
-    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState, timeOnPause, totalTime]);
+    }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState, timeOnPause]);
 
     const params: UseTimerParams = {
         currentTaskNumber: currentTaskNumber,

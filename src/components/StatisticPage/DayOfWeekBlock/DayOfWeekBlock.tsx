@@ -26,7 +26,7 @@ export function DayOfWeekBlock({statisticsByDayOfWeek, dayURI}: Props) {
                         <>
                             <div>Вы работали над задачами</div>
                             в течение <span>
-                            {secondsToHm(statisticsByDayOfWeek.total_time, "full")}
+                            {secondsToHm(statisticsByDayOfWeek.task_execution_time, "full")}
                             </span>
                         </>
                     ) : "Нет данных"}

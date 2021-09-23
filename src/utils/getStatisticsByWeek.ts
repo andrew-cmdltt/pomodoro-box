@@ -7,13 +7,14 @@ const currentDate = moment();
 export type StatisticsByWeek = {
     dayOfWeek: string,
     focus: number,
+    task_execution_time: number,
     time_on_pause: number,
-    total_time: number,
     stopping: number,
     pomodoro_count: number
 }
 
 export function getStatisticsByWeek(statistics: IStatisticsData[], week: "current" | "last" | "2 weeks ago") {
+
     let statisticsByWeek: StatisticsByWeek[] = [];
 
     let statisticDates: Date[] = []
@@ -39,16 +40,21 @@ export function getStatisticsByWeek(statistics: IStatisticsData[], week: "curren
     }
 
     let res = Object.fromEntries(statistics.map(item => [getDayOfWeekByDate(new Date(item.date), "abbreviated"), {
-        stopping: 0, pomodoro_count: 0, time_on_pause: 0, dayOfWeek: "", focus: 35, total_time: 0
+        stopping: 0, pomodoro_count: 0, time_on_pause: 0, dayOfWeek: "", focus: 0, task_execution_time: 0
     }]));
 
     statistics.forEach(item => {
+        const key = getDayOfWeekByDate(new Date(item.date), "abbreviated")
+
         if (filtered.includes(item.date)) {
-            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].stopping += item.stopping
-            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].pomodoro_count += item.pomodoro_count
-            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].time_on_pause += item.time_on_pause
-            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].total_time += item.total_time
-            res[getDayOfWeekByDate(new Date(item.date), "abbreviated")].dayOfWeek = getDayOfWeekByDate(new Date(item.date), "abbreviated")
+            res[key].stopping += item.stopping
+            res[key].pomodoro_count += item.pomodoro_count
+            res[key].time_on_pause += item.time_on_pause
+            res[key].task_execution_time += item.task_execution_time
+            res[key].focus = Math.floor(
+                res[key].task_execution_time /
+                (res[key].task_execution_time + res[key].time_on_pause) * 100)
+            res[key].dayOfWeek = getDayOfWeekByDate(new Date(item.date), "abbreviated")
         }
     })
 
