@@ -53,7 +53,8 @@
     border-color: #DC3E22;
     color: #DC3E22;
 }
-.madeButton, .skipButtonOnPause {
+
+.madeButton, .skipButtonOnPause, .stopButtonOnWork:hover {
     background-color: #DC3E22;
     color: #FFFFFF;
 }

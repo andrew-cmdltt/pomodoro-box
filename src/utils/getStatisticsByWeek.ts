@@ -14,7 +14,6 @@ export type StatisticsByWeek = {
 }
 
 export function getStatisticsByWeek(statistics: IStatisticsData[], week: "current" | "last" | "2 weeks ago") {
-
     let statisticsByWeek: StatisticsByWeek[] = [];
 
     let statisticDates: Date[] = []

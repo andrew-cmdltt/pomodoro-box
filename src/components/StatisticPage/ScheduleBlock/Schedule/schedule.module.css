@@ -30,16 +30,21 @@
     line-height: 29px;
     color: #999999;
     margin-left: 80px;
+    cursor: pointer;
 }
 
-.dayOfWeekAxis ul li span:hover, .dayOfWeekAxis .spanActive  {
+.dayOfWeekAxis ul li span:active  {
+    color: #EE735D;
+}
+
+.dayOfWeekAxis .spanActive  {
     color: #DC3E22;
 }
 
 .scale {
     position: absolute;
     width: 77px;
-    height: 200px;
+    height: 168px;
     background: #EA8A79;
     bottom: 40px;
     margin-left: 55px;
@@ -53,6 +58,10 @@
 
 .scaleActive {
     background: #DC3E22;;
+}
+
+.timeAxis {
+    margin-top: 28px;
 }
 
 .timeAxis ul {

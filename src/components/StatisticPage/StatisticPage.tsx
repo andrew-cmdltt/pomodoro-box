@@ -21,12 +21,10 @@ export function StatisticPage() {
     const statisticsByWeek: StatisticsByWeek[] = getStatisticsByWeek(statistics.data, weekURI)
     const statisticsByDayOfWeek: StatisticsByWeek = getStatisticsByDayOfWeek(dayURI, statisticsByWeek)
 
-    console.log(statisticsByDayOfWeek)
-
     return (
         <div className={styles.statisticPage}>
             <DayOfWeekBlock statisticsByDayOfWeek={statisticsByDayOfWeek} dayURI={dayURI}/>
-            <ScheduleBlock />
+            <ScheduleBlock statisticsByWeek={statisticsByWeek}/>
             <Counters statisticsByDayOfWeek={statisticsByDayOfWeek}/>
         </div>
     );

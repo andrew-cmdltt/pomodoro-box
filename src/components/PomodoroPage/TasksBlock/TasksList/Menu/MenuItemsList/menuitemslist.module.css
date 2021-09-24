@@ -2,7 +2,7 @@
     padding-top: 5px;
 }
 
-.menuItem, .menuItem a {
+.menuItem {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
