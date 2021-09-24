@@ -114,7 +114,7 @@ export function useTimer(tasks: ITasksData[]) {
             } else if (isWork && isPause) {
                 setTimeOnPause(timeOnPause => timeOnPause + 1)
             }
-        }, 5);
+        }, 1000);
         return () => clearInterval(interval);
     }, [isBreak, isPause, isWork, minutes, seconds, currentTaskNumber, setCompleteState, timeOnPause]);
 
