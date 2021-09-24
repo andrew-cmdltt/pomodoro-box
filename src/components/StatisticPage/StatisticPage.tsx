@@ -21,6 +21,7 @@ export function StatisticPage() {
     const statistics = useSelector<RootState, StatisticsState>(state => state.statistics);
     const {dayURI, weekURI}: Params = useParams();
     const errorMessage = "Некорректно указана неделя или день недели"
+
     const statisticsByWeek: Statistics[] = getStatisticsByWeek(statistics.data, weekURI)
     const statisticsByDayOfWeek: Statistics = getStatisticsByDayOfWeek(dayURI, statisticsByWeek)
 

@@ -4,9 +4,9 @@
 }
 
 .error {
-    position: absolute;
+    position: relative;
     color: #DC3E22;
     font-size: 13px;
-    top: 48px;
-    right: 240px;
+    top: 20px;
+    right: 165px;
 }

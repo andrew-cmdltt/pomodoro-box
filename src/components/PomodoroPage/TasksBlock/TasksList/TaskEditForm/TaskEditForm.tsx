@@ -2,6 +2,7 @@ import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {editTask, setEditTask} from "../../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
 import styles from './taskeditform.module.css'
+import {validateForm} from "../../../../../utils/validateForm";
 
 type Props = {
     id?: string
@@ -22,8 +23,8 @@ export function TaskEditForm({title, id}: Props) {
         event.preventDefault()
 
         if (value) {
-            if (value.length < 4) {
-                setError("Введите значение более 3-х символов")
+            if (!validateForm(value).isValid) {
+                setError(validateForm(value).message)
             } else {
                 setError("")
                 dispatch(editTask({id: id, title: value}))

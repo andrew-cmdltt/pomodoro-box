@@ -2,6 +2,8 @@ import React, {ChangeEvent, FormEvent, useState} from 'react';
 import {TaskForm} from "../TaskForm";
 import {addTask} from "../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
+import {validateForm} from "../../../../utils/validateForm";
+
 const uuid = require("uuid");
 
 export function TaskFormContainer() {
@@ -15,8 +17,8 @@ export function TaskFormContainer() {
 
     function handleSubmit(event: FormEvent) {
         event.preventDefault()
-        if (value.length < 4) {
-            setError("Введите значение более 3-х символов")
+        if (!validateForm(value).isValid) {
+            setError(validateForm(value).message)
         } else {
             setError("")
             setValue("")
