@@ -1,6 +1,8 @@
 import {Statistics} from "./getStatisticsByWeek";
 
-export function getStatisticsByDayOfWeek(day: string, statisticsByWeek: Statistics[]) {
+export type Day =  "Пн" | "Вт" | "Ср" | "Чт" | "Пт" | "Сб" | "Вс"
+
+export function getStatisticsByDayOfWeek(day: Day, statisticsByWeek: Statistics[]) {
     let statisticsByDayOfWeek: Statistics = {
         dayOfWeek: "",
         focus: 0,

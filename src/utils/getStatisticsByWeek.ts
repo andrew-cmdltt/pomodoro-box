@@ -13,7 +13,9 @@ export type Statistics = {
     pomodoro_count: number
 }
 
-export function getStatisticsByWeek(statistics: IStatisticsData[], week: "current" | "last" | "2 weeks ago") {
+export type Week = "current" | "last" | "2 weeks ago"
+
+export function getStatisticsByWeek(statistics: IStatisticsData[], week: Week) {
     let statisticsByWeek: Statistics[] = [];
 
     let statisticDates: Date[] = []

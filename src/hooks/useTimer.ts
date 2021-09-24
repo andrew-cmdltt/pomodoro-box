@@ -82,7 +82,9 @@ export function useTimer(tasks: ITasksData[]) {
     }
 
     const handleIncreaseTime = () => {
-        setMinutes(minutes => minutes + 1);
+        if (minutes < 59) {
+            setMinutes(minutes => minutes + 1);
+        }
     }
 
     const handleScip = () => {

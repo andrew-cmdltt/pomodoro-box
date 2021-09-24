@@ -9,10 +9,18 @@
     padding-right: 7px;
 }
 
+.statisticIcon path:hover {
+    fill: #B7280F;
+}
+
 .statisticText {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 17px;
     color: #DC3E22;
+}
+
+.statisticText:hover {
+    color: #B7280F;
 }

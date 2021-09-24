@@ -12,6 +12,7 @@ import thunk from "redux-thunk";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {DeleteModal} from "./components/DeleteModal";
 import {StatisticPage} from "./components/StatisticPage";
+import {ErrorMessage} from "./components/ErrorMessage";
 
 const store = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(thunk)
@@ -34,6 +35,9 @@ function App() {
                             <Route path="/delete/:id">
                                 <PomodoroPage/>
                                 <DeleteModal/>
+                            </Route>
+                            <Route path="*">
+                                <ErrorMessage errorMessage={"404 — страница не найдена"}/>
                             </Route>
                         </Switch>
                     </Content>

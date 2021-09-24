@@ -6,13 +6,13 @@ import {Counters} from "./Counters";
 import {useSelector} from "react-redux";
 import {RootState} from "../../store/reducer";
 import {StatisticsState} from "../../store/statistics/reduser";
-import {getStatisticsByWeek, Statistics} from "../../utils/getStatisticsByWeek";
+import {getStatisticsByWeek, Statistics, Week} from "../../utils/getStatisticsByWeek";
 import {useParams} from "react-router-dom";
-import {getStatisticsByDayOfWeek} from "../../utils/getStatisticsByDayOfWeek";
+import {Day, getStatisticsByDayOfWeek} from "../../utils/getStatisticsByDayOfWeek";
 
 type Params = {
-    dayURI: "Пн" | "Вт" | "Ср" | "Чт" | "Пт" | "Сб" | "Вс"
-    weekURI: "current" | "last" | "2 weeks ago"
+    dayURI: Day
+    weekURI: Week
 }
 
 export function StatisticPage() {

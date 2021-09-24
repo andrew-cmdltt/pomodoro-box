@@ -3,10 +3,11 @@ import styles from './dayofweekblock.module.css';
 import {Statistics} from "../../../utils/getStatisticsByWeek";
 import {getDayOfWeekByAbbreviated} from "../../../utils/getDayOfWeekByAbbreviated";
 import {secondsToHm} from "../../../utils/secondsToHm";
+import {Day} from "../../../utils/getStatisticsByDayOfWeek";
 
 type Props = {
     statisticsByDayOfWeek: Statistics,
-    dayURI: string
+    dayURI: Day
 }
 
 export function DayOfWeekBlock({statisticsByDayOfWeek, dayURI}: Props) {

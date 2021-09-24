@@ -1,7 +1,7 @@
-import {getStatisticsByDayOfWeek} from "./getStatisticsByDayOfWeek";
+import {Day, getStatisticsByDayOfWeek} from "./getStatisticsByDayOfWeek";
 import {Statistics} from "./getStatisticsByWeek";
 
-export function getHeight(day: string, statisticsByWeek: Statistics[]) {
+export function getHeight(day: Day, statisticsByWeek: Statistics[]) {
     let height: number
 
     const seconds = getStatisticsByDayOfWeek(day, statisticsByWeek).task_execution_time
