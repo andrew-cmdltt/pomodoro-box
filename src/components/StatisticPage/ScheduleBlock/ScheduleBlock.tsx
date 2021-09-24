@@ -1,10 +1,10 @@
 import React from 'react';
 import {Schedule} from "./Schedule";
 import {StatisticDropdown} from "./StatisticDropdown";
-import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
+import {Statistics} from "../../../utils/getStatisticsByWeek";
 
 type Props = {
-    statisticsByWeek: StatisticsByWeek[],
+    statisticsByWeek: Statistics[],
 }
 
 export function ScheduleBlock({statisticsByWeek}: Props) {

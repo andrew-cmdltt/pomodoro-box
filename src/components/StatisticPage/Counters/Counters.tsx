@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './counters.module.css';
 import {PomodoroCounter} from "./PomodoroCounter";
 import {TimerCounters} from "./TimerCounters";
-import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
+import {Statistics} from "../../../utils/getStatisticsByWeek";
 
 type Props = {
-    statisticsByDayOfWeek: StatisticsByWeek,
+    statisticsByDayOfWeek: Statistics,
 }
 
 

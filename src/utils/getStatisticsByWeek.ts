@@ -4,7 +4,7 @@ import {getDayOfWeekByDate} from "./getDayOfWeekByDate";
 
 const currentDate = moment();
 
-export type StatisticsByWeek = {
+export type Statistics = {
     dayOfWeek: string,
     focus: number,
     task_execution_time: number,
@@ -14,7 +14,7 @@ export type StatisticsByWeek = {
 }
 
 export function getStatisticsByWeek(statistics: IStatisticsData[], week: "current" | "last" | "2 weeks ago") {
-    let statisticsByWeek: StatisticsByWeek[] = [];
+    let statisticsByWeek: Statistics[] = [];
 
     let statisticDates: Date[] = []
 

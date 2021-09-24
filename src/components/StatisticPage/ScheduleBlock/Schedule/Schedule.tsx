@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './schedule.module.css';
-import {StatisticsByWeek} from "../../../../utils/getStatisticsByWeek";
+import {Statistics} from "../../../../utils/getStatisticsByWeek";
 import {DayOfWeekAxis} from "./DayOfWeekAxis";
 import {TimeAxis} from "./TimeAxis";
 
 type Props = {
-    statisticsByWeek: StatisticsByWeek[],
+    statisticsByWeek: Statistics[],
 }
 
 export function Schedule({statisticsByWeek}: Props) {

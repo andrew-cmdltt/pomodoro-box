@@ -1,7 +1,7 @@
-import {StatisticsByWeek} from "./getStatisticsByWeek";
+import {Statistics} from "./getStatisticsByWeek";
 
-export function getStatisticsByDayOfWeek(day: string, statisticsByWeek: StatisticsByWeek[]) {
-    let statisticsByDayOfWeek: StatisticsByWeek = {
+export function getStatisticsByDayOfWeek(day: string, statisticsByWeek: Statistics[]) {
+    let statisticsByDayOfWeek: Statistics = {
         dayOfWeek: "",
         focus: 0,
         task_execution_time: 0,

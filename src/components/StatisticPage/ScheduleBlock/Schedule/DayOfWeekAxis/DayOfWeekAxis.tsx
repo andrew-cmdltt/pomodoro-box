@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './dayofweekaxis.module.css';
 import {Link, useParams} from "react-router-dom";
-import {StatisticsByWeek} from "../../../../../utils/getStatisticsByWeek";
+import {Statistics} from "../../../../../utils/getStatisticsByWeek";
 import {getHeight} from "../../../../../utils/getHeight";
 
 type Params = {
-    dayURI: string
-    weekURI: string
+    dayURI: "Пн" | "Вт" | "Ср" | "Чт" | "Пт" | "Сб" | "Вс"
+    weekURI: "current" | "last" | "2 weeks ago"
 }
 
 type Props = {
-    statisticsByWeek: StatisticsByWeek[],
+    statisticsByWeek: Statistics[],
 }
 
 export function DayOfWeekAxis({statisticsByWeek}: Props) {

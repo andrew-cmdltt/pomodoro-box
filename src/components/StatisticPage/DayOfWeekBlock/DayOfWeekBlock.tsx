@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './dayofweekblock.module.css';
-import {StatisticsByWeek} from "../../../utils/getStatisticsByWeek";
+import {Statistics} from "../../../utils/getStatisticsByWeek";
 import {getDayOfWeekByAbbreviated} from "../../../utils/getDayOfWeekByAbbreviated";
 import {secondsToHm} from "../../../utils/secondsToHm";
 
 type Props = {
-    statisticsByDayOfWeek: StatisticsByWeek,
+    statisticsByDayOfWeek: Statistics,
     dayURI: string
 }
 
