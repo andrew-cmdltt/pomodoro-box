@@ -1,6 +1,6 @@
 .pomodoroCounter {
-    position: absolute;
-    margin-top: 32px;
+    position: relative;
+    top: 44px;
     width: 296px;
     height: 179px;
     background: #F4F4F4;
