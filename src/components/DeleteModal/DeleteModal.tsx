@@ -29,7 +29,7 @@ export function DeleteModal() {
         <RelativePortal
             component="div"
             className="container"
-            top={-400}
+            top={300}
             right={550}
         >
             <div className={styles.deleteModal} ref={ref}>
