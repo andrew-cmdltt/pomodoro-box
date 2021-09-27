@@ -1,7 +1,7 @@
 .pomodoroPage {
     position: absolute;
     display: flex;
-    flex-flow: row nowrap;
+    flex-direction: column;
     margin-top: 80px;
 }
 

@@ -6,3 +6,12 @@
     left: 635px;
     background: #F4F4F4;
 }
+
+@media all and (max-width: 1024px) {
+    .taskTimerBlock {
+        position: relative;
+        top: 50px;
+        left: 80px;
+        overflow-x: auto;
+    }
+}

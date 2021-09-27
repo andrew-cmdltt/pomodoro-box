@@ -3,3 +3,9 @@
     margin-top: 160px;
     margin-left: 80px;
 }
+
+@media all and (max-width: 1024px) {
+    .statisticPage {
+        overflow-x: hidden;
+    }
+}

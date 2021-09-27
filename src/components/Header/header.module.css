@@ -10,3 +10,9 @@
     width: 1440px;
     box-shadow: 0 10px 63px rgba(0, 0, 0, 0.07);
 }
+
+@media all and (max-width: 1024px) {
+    .header {
+        width: 100%;
+    }
+}
