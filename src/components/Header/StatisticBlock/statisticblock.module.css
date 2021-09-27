@@ -26,10 +26,10 @@
     color: #B7280F;
 }
 
-@media all and (max-width: 1024px) {
+@media screen and (max-width: 479px) {
     .statisticBlock {
         position: relative;
-        right: 550px;
+        right: 920px;
         cursor: pointer;
     }
 }

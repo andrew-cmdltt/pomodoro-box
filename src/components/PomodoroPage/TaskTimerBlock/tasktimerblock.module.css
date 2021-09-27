@@ -7,7 +7,7 @@
     background: #F4F4F4;
 }
 
-@media all and (max-width: 1024px) {
+@media screen and (max-width: 479px) {
     .taskTimerBlock {
         position: relative;
         top: 50px;
