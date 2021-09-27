@@ -4,8 +4,8 @@
     margin-left: 80px;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 767px) {
     .statisticPage {
-        overflow-x: hidden;
+        overflow: hidden;
     }
 }
