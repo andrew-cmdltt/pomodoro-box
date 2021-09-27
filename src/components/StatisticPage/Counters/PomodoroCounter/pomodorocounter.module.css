@@ -1,6 +1,6 @@
 .pomodoroCounter {
     position: relative;
-    top: 44px;
+    top: 38px;
     width: 296px;
     height: 179px;
     background: #F4F4F4;
@@ -50,4 +50,24 @@
     font-size: 24px;
     line-height: 33px;
     color: #FFFFFF;
+}
+
+@media screen and (max-width: 767px) {
+    .pomodoroCounter {
+        position: relative;
+        top: 25px;
+    }
+
+    .footer {
+        position: relative;
+        margin-top: 23px;
+        height: 42px;
+        background: #DC3E22;
+    }
+
+    .footer span {
+        position: absolute;
+        top: 4px;
+    }
+
 }

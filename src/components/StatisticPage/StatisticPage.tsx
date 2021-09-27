@@ -29,7 +29,7 @@ export function StatisticPage() {
         <div className={styles.statisticPage}>
             <DayOfWeekBlock statisticsByDayOfWeek={statisticsByDayOfWeek} dayURI={dayURI}/>
             <ScheduleBlock statisticsByWeek={statisticsByWeek}/>
-            {/*<Counters statisticsByDayOfWeek={statisticsByDayOfWeek}/>*/}
+            <Counters statisticsByDayOfWeek={statisticsByDayOfWeek}/>
         </div>
     ) : <ErrorMessage errorMessage={errorMessage}/>;
 }

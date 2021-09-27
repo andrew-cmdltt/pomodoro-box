@@ -1,4 +1,5 @@
 .deleteModal {
+    position: absolute;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -6,6 +7,7 @@
     width: 350px;
     height: 175px;
     background: #FFFFFF;
+    left: -870px;
     box-shadow: 4px 4px 8px 1000px rgba(34, 60, 80, 0.4);
 }
 
@@ -57,3 +59,10 @@
     text-decoration: underline;
 }
 
+@media screen and (max-width: 767px) {
+    .deleteModal {
+        position: absolute;
+        left: -360px;
+        top: 50%;
+    }
+}

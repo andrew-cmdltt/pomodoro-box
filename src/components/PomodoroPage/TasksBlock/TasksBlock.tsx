@@ -6,16 +6,15 @@ import {TaskFormContainer} from "./TaskFormContainer";
 import {ITasksData} from "../../../store/tasks/actions";
 
 type Props = {
-    isWork: boolean
     tasks: ITasksData[]
 }
 
-export function TasksBlock({isWork, tasks}: Props) {
+export function TasksBlock({tasks}: Props) {
     return (
         <div className={styles.tasksBlock}>
             <Instruction/>
             <TaskFormContainer/>
-            {tasks.length > 0 && !isWork && (<TasksList tasks={tasks}/>)}
+            {tasks.length > 0 && (<TasksList tasks={tasks}/>)}
         </div>
     );
 }

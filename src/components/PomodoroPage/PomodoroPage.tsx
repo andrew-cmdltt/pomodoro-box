@@ -13,7 +13,7 @@ export function PomodoroPage() {
     
     return (
         <div className={styles.pomodoroPage}>
-            <TasksBlock isWork={timerParams.isWork} tasks={tasks.data}/>
+            <TasksBlock tasks={tasks.data}/>
             {tasks.data.length > 0 && (<TaskTimerBlock timerParams={timerParams}/>)}
         </div>
     );

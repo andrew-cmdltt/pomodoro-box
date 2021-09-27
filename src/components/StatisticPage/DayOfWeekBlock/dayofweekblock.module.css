@@ -45,3 +45,10 @@
     font-weight: bold;
 }
 
+@media screen and (max-width: 767px) {
+    .dayOfWeekBlock {
+        position: relative;
+        height: 230px;
+    }
+}
+

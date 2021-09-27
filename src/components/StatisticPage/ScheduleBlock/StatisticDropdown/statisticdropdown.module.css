@@ -60,7 +60,7 @@
 @media screen and (max-width: 767px) {
     .statisticDropdown {
         position: relative;
-        left: 560px;
+        left: 576px;
         list-style: none;
         z-index: 50;
     }

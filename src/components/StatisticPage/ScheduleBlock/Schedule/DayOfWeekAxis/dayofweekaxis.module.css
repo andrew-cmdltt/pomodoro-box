@@ -59,11 +59,11 @@
 
     .dayOfWeekAxis ul li span {
         font-size: 20px;
-        margin-left: 52px;
+        margin-left: 45px;
     }
 
     .scale {
-        width: 50px;
-        margin-left: 42px;
+        width: 45px;
+        margin-left: 35px;
     }
 }

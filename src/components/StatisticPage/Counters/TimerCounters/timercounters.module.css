@@ -9,4 +9,14 @@
     z-index: 500;
 }
 
+@media screen and (max-width: 767px) {
+    .timerCounters {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        bottom: 580px;
+        left: 280px;
+    }
+}
 

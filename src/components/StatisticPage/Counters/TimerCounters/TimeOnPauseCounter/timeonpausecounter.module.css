@@ -42,5 +42,31 @@
     stroke: #9C97D7;
 }
 
+@media screen and (max-width: 767px) {
+    .timeOnPauseCounter {
+        position: relative;
+        width: 300px;
+        height: 100px;
+        z-index: 1000;
+        top: 30px;
+    }
+
+    .title {
+        font-size: 18px;
+        top: 10px;
+    }
+
+    .value {
+        font-size: 18px;
+        top: 35px;
+    }
+
+    .icon svg {
+        position: absolute;
+        width: 72px;
+        top: -40px;
+        right: -15px;
+    }
+}
 
 
