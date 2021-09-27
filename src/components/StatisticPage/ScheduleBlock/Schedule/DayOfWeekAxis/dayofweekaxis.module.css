@@ -50,3 +50,20 @@
 .scaleActive {
     background: #DC3E22;;
 }
+
+
+@media screen and (max-width: 767px) {
+    .dayOfWeekAxis {
+        top: 429px;
+    }
+
+    .dayOfWeekAxis ul li span {
+        font-size: 20px;
+        margin-left: 52px;
+    }
+
+    .scale {
+        width: 50px;
+        margin-left: 42px;
+    }
+}

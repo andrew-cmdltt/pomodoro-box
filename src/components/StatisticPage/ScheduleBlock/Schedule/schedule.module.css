@@ -6,3 +6,9 @@
     height: 430px;
     background: #F4F4F4;
 }
+
+@media screen and (max-width: 767px) {
+    .schedule {
+        width: 600px;
+    }
+}
