@@ -43,7 +43,7 @@ export function TasksList({tasks}: Props) {
                                 <div className={styles.taskTitle}>
                                     {task.title}
                                 </div>) : (
-                                <TaskEditForm title={task?.title} id={task.id}/>
+                                <TaskEditForm title={task.title} id={task.id}/>
                             )}
                         </li>
                         <div className={styles.divider}/>

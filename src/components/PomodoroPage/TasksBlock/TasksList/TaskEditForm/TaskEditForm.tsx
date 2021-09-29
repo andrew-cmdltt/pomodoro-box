@@ -6,7 +6,7 @@ import {validateForm} from "../../../../../utils/validateForm";
 
 type Props = {
     id?: string
-    title?: string
+    title: string
 }
 
 export function TaskEditForm({title, id}: Props) {
@@ -22,21 +22,21 @@ export function TaskEditForm({title, id}: Props) {
     function handleSubmit(event: FormEvent) {
         event.preventDefault()
 
-        if (value) {
-            if (!validateForm(value).isValid) {
-                setError(validateForm(value).message)
-            } else {
-                setError("")
-                dispatch(editTask({id: id, title: value}))
-                dispatch(setEditTask({id: id, isEdit: false}))
-            }
+        if (!validateForm(value).isValid) {
+            setError(validateForm(value).message)
+        } else {
+            setError("")
+            dispatch(editTask({id: id, title: value}))
+            dispatch(setEditTask({id: id, isEdit: false}))
         }
-
     }
 
     return (
         <form onSubmit={handleSubmit} className={styles.taskEditForm}>
             <input type="text" value={value} onChange={handleChange}/>
+            <button type="submit" className={styles.button}>
+                Сохранить
+            </button>
             <span className={styles.error}>{error}</span>
         </form>
     );

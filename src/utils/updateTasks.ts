@@ -17,7 +17,9 @@ export function updateTasks(tasks: ITasksData[], data: ITasksData | undefined, a
                     }
                     break
                 case "EDIT_TASK":
-                    tasks[i]["title"] = data?.title
+                    if (data?.title) {
+                        tasks[i]["title"] = data?.title
+                    }
                     break
                 case "SET_EDIT_TASK":
                     tasks[i]["isEdit"] = data?.isEdit

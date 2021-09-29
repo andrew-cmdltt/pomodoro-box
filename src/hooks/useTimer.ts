@@ -2,6 +2,7 @@ import {useCallback, useEffect, useState} from "react";
 import {deleteTask, ITasksData} from "../store/tasks/actions";
 import {useDispatch} from "react-redux";
 import {setStatistics} from "../store/statistics/actions";
+import {updateTimer} from "../store/timer/actions";
 const uuid = require("uuid");
 
 export type UseTimerParams = {
@@ -96,7 +97,6 @@ export function useTimer(tasks: ITasksData[]) {
             if (isWork && !isBreak && !isPause) {
                 setTaskExecutionTime(taskExecutionTime => taskExecutionTime + 1)
             }
-
             if (isWork && !isPause) {
                 setSeconds(seconds => seconds - 1);
                 if (seconds === 0) {

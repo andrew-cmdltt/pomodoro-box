@@ -7,7 +7,7 @@ import {
     DecreasePomodoroAction,
     EditTaskAction, SetEditTaskAction
 } from "./actions";
-import {updateTasks} from "../../utils/updateState";
+import {updateTasks} from "../../utils/updateTasks";
 
 export type TaskState = {
     data: ITasksData[];

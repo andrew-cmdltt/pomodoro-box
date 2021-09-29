@@ -3,7 +3,7 @@ import {ADD_TASK, DECREASE_POMODORO, DELETE_TASK, EDIT_TASK, INCREASE_POMODORO, 
 
 export interface ITasksData {
     id?: string;
-    title?: string;
+    title: string;
     pomodoro_count: number;
     time_count: number;
     isEdit?: boolean;
