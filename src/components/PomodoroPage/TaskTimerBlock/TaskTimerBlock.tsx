@@ -10,9 +10,9 @@ type Props = {
 }
 
 export function TaskTimerBlock({timerParams}: Props) {
-    let location = useLocation()
-
-    const isHiddenClass = location.pathname !== "/" ? styles.taskTimerBlock + " " + styles.hidden : styles.taskTimerBlock
+    const location = useLocation()
+    const isHiddenClass = location.pathname !== "/" && location.pathname.indexOf('delete') === -1 ?
+        styles.taskTimerBlock + " " + styles.hidden : styles.taskTimerBlock
 
     return (
         <div className={isHiddenClass}>

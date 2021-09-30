@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './deletemodal.module.css';
 import RelativePortal from 'react-relative-portal';
 import {useModalRef} from "../../hooks/useModalRef";
-import { Link, useParams } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {deleteTask} from "../../store/tasks/actions";
 import {updateTimer} from "../../store/timer/actions";
@@ -24,7 +24,17 @@ export function DeleteModal() {
 
     const handleRemove = () => {
         dispatch(deleteTask(id.id))
-        dispatch(updateTimer({minutes: 25, seconds: 60}))
+        dispatch(updateTimer({
+            minutes: 25,
+            seconds: 60,
+            is_work: false,
+            is_break: false,
+            is_pause: false,
+            time_on_pause: 0,
+            task_execution_time: 0,
+            increased_time: 0,
+            stopping: 0,
+        }))
     }
 
     return (
