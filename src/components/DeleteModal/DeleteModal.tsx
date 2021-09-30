@@ -5,6 +5,7 @@ import {useModalRef} from "../../hooks/useModalRef";
 import { Link, useParams } from 'react-router-dom';
 import {useDispatch} from "react-redux";
 import {deleteTask} from "../../store/tasks/actions";
+import {updateTimer} from "../../store/timer/actions";
 
 interface Params {
     id: string
@@ -23,6 +24,7 @@ export function DeleteModal() {
 
     const handleRemove = () => {
         dispatch(deleteTask(id.id))
+        dispatch(updateTimer({minutes: 25, seconds: 60}))
     }
 
     return (

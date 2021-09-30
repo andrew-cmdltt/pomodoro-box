@@ -2,13 +2,16 @@ import {ActionCreator} from "redux";
 import {UPDATE_TIMER} from "./types";
 
 export interface ITimerData {
-    currentTaskNumber: number;
+    current_task_number: number;
     pomodoro: number;
     minutes: number;
     seconds: number;
-    isWork: boolean;
-    isBreak: boolean;
-    isPause: boolean;
+    is_work: boolean;
+    is_break: boolean;
+    is_pause: boolean;
+    time_on_pause: number,
+    task_execution_time: number,
+    stopping: number,
 }
 
 export type UpdateTimerAction = {

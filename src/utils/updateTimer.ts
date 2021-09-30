@@ -4,8 +4,8 @@ export function updateTimer(timer: ITimerData | undefined, data: ITimerData | un
     if (data && timer) {
         for (let key in data) {
             switch (key) {
-                case "currentTaskNumber":
-                    timer[key] = data.currentTaskNumber
+                case "current_task_number":
+                    timer[key] = data.current_task_number
                     break
                 case "pomodoro":
                     timer[key] = data.pomodoro
@@ -16,14 +16,24 @@ export function updateTimer(timer: ITimerData | undefined, data: ITimerData | un
                 case "seconds":
                     timer[key] = data.seconds
                     break
-                case "isWork":
-                    timer[key] = data.isWork
+                case "is_work":
+                    timer[key] = data.is_work
                     break
-                case "isBreak":
-                    timer[key] = data.isBreak
+                case "is_break":
+                    timer[key] = data.is_break
                     break
-                case "isPause":
-                    timer[key] = data.isPause
+                case "is_pause":
+                    timer[key] = data.is_pause
+                    break
+                case "time_on_pause":
+                    timer[key] = data.time_on_pause
+                    break
+                case "task_execution_time":
+                    timer[key] = data.task_execution_time
+                    break
+                case "stopping":
+                    timer[key] = data.stopping
+                    break
             }
         }
     }

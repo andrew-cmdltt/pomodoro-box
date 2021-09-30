@@ -3,6 +3,7 @@ import {TaskForm} from "../TaskForm";
 import {addTask} from "../../../../store/tasks/actions";
 import {useDispatch} from "react-redux";
 import {validateForm} from "../../../../utils/validateForm";
+import {updateTimer} from "../../../../store/timer/actions";
 
 const uuid = require("uuid");
 
@@ -28,6 +29,7 @@ export function TaskFormContainer() {
                 pomodoro_count: 1,
                 isEdit: false,
             }))
+            dispatch(updateTimer({minutes: 25, seconds: 60}))
         }
     }
 

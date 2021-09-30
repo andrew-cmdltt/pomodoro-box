@@ -11,12 +11,7 @@ type Props = {
     pomodoroCount: number
 }
 
-export function MenuItemsList({
-                                  handleDecreasePomodoro,
-                                  handleSetEditTask,
-                                  handleIncreasePomodoro,
-                                  id,
-                                  pomodoroCount
+export function MenuItemsList({handleDecreasePomodoro, handleSetEditTask, handleIncreasePomodoro, id, pomodoroCount
                               }: Props) {
     const menuItemDecreaseClass = pomodoroCount === 1 ? styles.menuItem + " " + styles.disabled : styles.menuItem
 

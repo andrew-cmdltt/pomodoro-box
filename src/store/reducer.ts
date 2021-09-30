@@ -21,13 +21,16 @@ const initialState = {
     },
     timer: {
         data: {
-            currentTaskNumber: 1,
+            current_task_number: 1,
             pomodoro: 1,
             minutes: 25,
             seconds: 60,
-            isWork: false,
-            isBreak: false,
-            isPause: false
+            is_work: false,
+            is_break: false,
+            is_pause: false,
+            time_on_pause: 0,
+            task_execution_time: 0,
+            stopping: 0,
         }
     }
 }
