@@ -34,6 +34,9 @@ export function updateTimer(timer: ITimerData | undefined, data: ITimerData | un
                 case "stopping":
                     timer[key] = data.stopping
                     break
+                case "increased_time":
+                    timer[key] = data.increased_time
+                    break
             }
         }
     }

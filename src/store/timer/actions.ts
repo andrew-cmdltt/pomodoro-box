@@ -11,6 +11,7 @@ export interface ITimerData {
     is_pause: boolean;
     time_on_pause: number,
     task_execution_time: number,
+    increased_time: number,
     stopping: number,
 }
 

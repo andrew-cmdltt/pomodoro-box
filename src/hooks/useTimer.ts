@@ -42,9 +42,7 @@ export function useTimer(tasks: ITasksData[]) {
                 task_execution_time: timer.task_execution_time
             }))
 
-            dispatch(updateTimer({task_execution_time: 0}))
-            dispatch(updateTimer({time_on_pause: 0}))
-            dispatch(updateTimer({stopping: 0}))
+            dispatch(updateTimer({task_execution_time: 0, time_on_pause: 0, stopping: 0, increased_time: 0}))
         }
     }, [dispatch, timer])
 
@@ -72,7 +70,12 @@ export function useTimer(tasks: ITasksData[]) {
 
     const handleStop = () => {
         if (timer) {
-            dispatch(updateTimer({is_work: false, minutes: 25, seconds: 60}))
+            dispatch(updateTimer({is_work: false, seconds: 60}))
+            if (timer.increased_time) {
+                dispatch(updateTimer({minutes: timer.increased_time}))
+            } else {
+                dispatch(updateTimer({minutes: 25}))
+            }
             dispatch(updateTimer({stopping: timer.stopping + 1}))
         }
     }
@@ -88,7 +91,7 @@ export function useTimer(tasks: ITasksData[]) {
 
     const handleIncreaseTime = () => {
         if (timer && timer.minutes < 59) {
-            dispatch(updateTimer({minutes: timer.minutes + 1}))
+            dispatch(updateTimer({minutes: timer.minutes + 1, increased_time: timer.minutes + 1}))
         }
     }
 

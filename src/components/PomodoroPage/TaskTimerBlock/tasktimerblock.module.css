@@ -7,6 +7,10 @@
     background: #F4F4F4;
 }
 
+.hidden {
+    display: none;
+}
+
 @media screen and (max-width: 767px) {
     .taskTimerBlock {
         position: relative;

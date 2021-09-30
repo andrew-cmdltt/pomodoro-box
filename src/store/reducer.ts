@@ -30,6 +30,7 @@ const initialState = {
             is_pause: false,
             time_on_pause: 0,
             task_execution_time: 0,
+            increased_time: 0,
             stopping: 0,
         }
     }
