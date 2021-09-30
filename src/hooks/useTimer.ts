@@ -118,7 +118,7 @@ export function useTimer(tasks: ITasksData[]) {
             } else if (timer?.is_work && timer?.is_pause) {
                 dispatch(updateTimer({time_on_pause: timer.time_on_pause + 1}))
             }
-        }, 5);
+        }, 1000);
         return () => clearInterval(interval);
     }, [dispatch, setCompleteState, timer]);
 
