@@ -1,5 +1,5 @@
 export function validateForm(value: string) {
-    const st = new RegExp('[^а-яА-Яa-zA-Z0-9]+')
+    const st = new RegExp('[^а-яА-Я a-zA-Z0-9]+')
     let message: string = ""
     let isValid: boolean = true
 
